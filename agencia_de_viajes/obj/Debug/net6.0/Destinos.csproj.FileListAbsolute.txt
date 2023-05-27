@@ -184,3 +184,5 @@ C:\Users\lauta\source\repos\Agencia de Viajes\MicroServiciosDestinos\agencia_de_
 C:\Users\lauta\source\repos\Agencia de Viajes\MicroServiciosDestinos\agencia_de_viajes\obj\Debug\net6.0\ref\Destinos.dll
 C:\Users\lauta\source\repos\Agencia de Viajes\MicroServiciosDestinos\agencia_de_viajes\bin\Debug\net6.0\System.Net.Http.Json.dll
 C:\Users\lauta\source\repos\Agencia de Viajes\MicroServiciosDestinos\agencia_de_viajes\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\lauta\source\repos\Agencia de Viajes\MicroServiciosDestinos\agencia_de_viajes\bin\Debug\net6.0\System.Net.Http.Formatting.dll
+C:\Users\lauta\source\repos\Agencia de Viajes\MicroServiciosDestinos\agencia_de_viajes\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll

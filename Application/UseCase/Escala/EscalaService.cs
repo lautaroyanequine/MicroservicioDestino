@@ -15,12 +15,14 @@ namespace Application.UseCase
         private readonly IEscalaQuery _query;
         private readonly IEscalaCommand _command;
         private readonly ICiudadQuery _ciudadQuery;
+        private readonly IClientViaje _clientViaje;
 
-        public EscalaService(IEscalaQuery query, IEscalaCommand command, ICiudadQuery ciudadQuery)
+        public EscalaService(IEscalaQuery query, IEscalaCommand command, ICiudadQuery ciudadQuery, IClientViaje clientViaje)
         {
             _query = query;
             _command = command;
             _ciudadQuery = ciudadQuery;
+            _clientViaje = clientViaje;
         }
 
         public EscalaResponse CreateEscala(EscalaRequest request)
@@ -35,6 +37,8 @@ namespace Application.UseCase
 
 
             if( _ciudadQuery.GetCiudad(request.CiudadId)==null) throw new ElementoInexistenteException();
+
+            var response = _clientViaje.ObtenerViaje(request.ViajeId);
 
             var escala = new Escala
             {

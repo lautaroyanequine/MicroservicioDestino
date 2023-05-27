@@ -65,8 +65,8 @@ namespace Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("ViajeId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("ViajeId")
+                        .HasColumnType("int");
 
                     b.HasKey("EscalaId");
 
@@ -129,8 +129,8 @@ namespace Infrastructure.Migrations
                     b.Property<int>("CiudadId")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("ViajeId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("ViajeId")
+                        .HasColumnType("int");
 
                     b.HasKey("ViajeCiudadId");
 

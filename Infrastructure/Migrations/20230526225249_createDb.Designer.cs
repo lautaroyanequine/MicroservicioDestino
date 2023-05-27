@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(DestinosContext))]
-    [Migration("20230523194855_CreateDb")]
-    partial class CreateDb
+    [Migration("20230526225249_createDb")]
+    partial class createDb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -68,8 +68,8 @@ namespace Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("ViajeId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("ViajeId")
+                        .HasColumnType("int");
 
                     b.HasKey("EscalaId");
 
@@ -132,8 +132,8 @@ namespace Infrastructure.Migrations
                     b.Property<int>("CiudadId")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("ViajeId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("ViajeId")
+                        .HasColumnType("int");
 
                     b.HasKey("ViajeCiudadId");
 

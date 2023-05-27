@@ -1,6 +1,4 @@
 ﻿using System;
-using Infrastructure.Data;
-using Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
@@ -8,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class CreateDb : Migration
+    public partial class createDb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -76,7 +74,7 @@ namespace Infrastructure.Migrations
                     NombreParada = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     HoraLlegada = table.Column<DateTime>(type: "datetime2", nullable: false),
                     HoraSalida = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ViajeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ViajeId = table.Column<int>(type: "int", nullable: false),
                     CiudadId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -96,7 +94,7 @@ namespace Infrastructure.Migrations
                 {
                     ViajeCiudadId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ViajeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ViajeId = table.Column<int>(type: "int", nullable: false),
                     CiudadId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -129,7 +127,6 @@ namespace Infrastructure.Migrations
                 name: "IX_ViajeCiudad_CiudadId",
                 table: "ViajeCiudad",
                 column: "CiudadId");
-
         }
 
         /// <inheritdoc />

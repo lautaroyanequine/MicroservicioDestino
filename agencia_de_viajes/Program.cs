@@ -1,6 +1,7 @@
 
 using Application.Interfaces;
 using Application.UseCase;
+using Infrastructure.Client;
 using Infrastructure.Command;
 using Infrastructure.Data;
 using Infrastructure.Persistence;
@@ -40,8 +41,8 @@ builder.Services.AddScoped<IEscalaService, EscalaService>();
 builder.Services.AddScoped<IEscalaCommand, EscalaCommand>();
 builder.Services.AddTransient<IEscalaQuery, EscalaQuery>();
 
-
-//await PaisData.SeedPaises(); HAY QUE EJCUTAR ESTA LINEA PARA TENER TODOS LOS PAISES,NO SE PUEDE DESCOMENTAR PQ NO DEJA HACER LA MIGRACION
+builder.Services.AddScoped<IClientViaje, ClientViaje>();
+//await PaisData.SeedPaises(); // HAY QUE EJCUTAR ESTA LINEA PARA TENER TODOS LOS PAISES,NO SE PUEDE DESCOMENTAR PQ NO DEJA HACER LA MIGRACION
 
 
 

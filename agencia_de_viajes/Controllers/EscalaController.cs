@@ -34,6 +34,11 @@ namespace Destinos.Controllers
                 return BadRequest(new { message = "El formato de horario que se espera es : 13:45 11/05/2023" });
 
             }
+            catch(IdInvalidoException i)
+            {
+                return BadRequest(new { message = "Ingreso un viaje  inexistente" });
+
+            }
 
             catch (ElementoInexistenteException e)
             {

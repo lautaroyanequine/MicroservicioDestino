@@ -3,7 +3,7 @@
     public class ViajeCiudadRequest
     {
 
-        public Guid ViajeId { get; set; }
+        public int ViajeId { get; set; }
 
         public int CiudadId { get; set; }
     }
