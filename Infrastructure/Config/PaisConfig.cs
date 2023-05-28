@@ -21,37 +21,7 @@ namespace Infrastructure.Config
 
 
         }
-        //public async Task DataPaises(EntityTypeBuilder<Pais> entityTypeBuilder)
-        //{
-        //    HttpClient client = new HttpClient();
-        //    string url = "https://restcountries.com/v3.1/all";
-        //    HttpResponseMessage response = await client.GetAsync(url);
-        //    if (response.IsSuccessStatusCode)
-        //    {
-        //        string json = await response.Content.ReadAsStringAsync();
-
-        //        List<Country> countries = JsonConvert.DeserializeObject<List<Country>>(json);
-
-        //        foreach (var item in countries)
-        //        {
-        //            entityTypeBuilder.HasData(
-        //                new Pais
-        //                {
-        //                    Nombre = item.translations.spa.common,
-        //                    Codigo = item.cioc
-        //                });
-        //        }
-
-        //    }
-        //    entityTypeBuilder.HasData(
-        //                new Pais
-        //                {
-        //                    Nombre = "Argentina",
-        //                    Codigo ="ARG"
-        //                });
-
-        //}
-
+    
 
 
 

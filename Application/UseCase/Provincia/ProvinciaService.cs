@@ -43,7 +43,9 @@ namespace Application.UseCase
                 Pais = new PaisResponse
                 {
                     Id = provincia.PaisId,
-                    Nombre = _queryPais.GetPais(request.PaisId).Nombre
+                    Nombre = _queryPais.GetPais(request.PaisId).Nombre,
+                    Codigo = _queryPais.GetPais(request.PaisId).Codigo
+
                 }
             };
         }
@@ -60,7 +62,9 @@ namespace Application.UseCase
                     Pais = new PaisResponse
                     {
                         Id = provincia.PaisId,
-                        Nombre = _queryPais.GetPais(provincia.PaisId).Nombre
+                        Nombre = _queryPais.GetPais(provincia.PaisId).Nombre,
+                        Codigo = _queryPais.GetPais(provincia.PaisId).Codigo
+
                     }
                 };
             }
@@ -89,7 +93,10 @@ namespace Application.UseCase
                     Pais = new PaisResponse
                     {
                         Id = provincia.PaisId,
-                        Nombre = _queryPais.GetPais(provincia.PaisId).Nombre
+                        Nombre = _queryPais.GetPais(provincia.PaisId).Nombre,
+                        Codigo = _queryPais.GetPais(provincia.PaisId).Codigo
+
+
 
                     }
                 });
@@ -108,7 +115,9 @@ namespace Application.UseCase
                 Pais = new PaisResponse
                 {
                     Id = provincia.PaisId,
-                    Nombre = _queryPais.GetPais(provincia.PaisId).Nombre
+                    Nombre = _queryPais.GetPais(provincia.PaisId).Nombre,
+                    Codigo = _queryPais.GetPais(provincia.PaisId).Codigo
+
 
                 }
             };
@@ -129,7 +138,9 @@ namespace Application.UseCase
                 Pais = new PaisResponse
                 {
                     Id = provincia.PaisId,
-                    Nombre = _queryPais.GetPais(provincia.PaisId).Nombre
+                    Nombre = _queryPais.GetPais(provincia.PaisId).Nombre,
+                    Codigo = _queryPais.GetPais(provincia.PaisId).Codigo
+
 
                 }
             };

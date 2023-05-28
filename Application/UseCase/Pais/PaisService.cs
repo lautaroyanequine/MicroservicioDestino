@@ -18,40 +18,43 @@ namespace Application.UseCase
             _query = query;
         }
 
-        public async Task<bool> IsValidCountry(string countryName)
-        {
-            HttpClient client = new HttpClient();
-            string url = "https://restcountries.com/v3.1/all";
-            HttpResponseMessage response = await client.GetAsync(url);
-            bool existe = false;
-            if (response.IsSuccessStatusCode)
-            {
-                string json = await response.Content.ReadAsStringAsync();
+        //public async Task<bool> IsValidCountry(string countryName)
+        //{
+        //    HttpClient client = new HttpClient();
+        //    string url = "https://restcountries.com/v3.1/all";
+        //    HttpResponseMessage response = await client.GetAsync(url);
+        //    bool existe = false;
+        //    if (response.IsSuccessStatusCode)
+        //    {
+        //        string json = await response.Content.ReadAsStringAsync();
 
-                List<Country> countries = JsonConvert.DeserializeObject<List<Country>>(json);
-                var country = countries.FirstOrDefault(c => c.translations.spa.common == countryName);
-                if (country != null) { existe = true; }
+        //        List<Country> countries = JsonConvert.DeserializeObject<List<Country>>(json);
+        //        var country = countries.FirstOrDefault(c => c.translations.spa.common == countryName);
+        //        if (country != null) { existe = true; }
 
-            }
-            if (existe) return true;
-            return false;
-        }
+        //    }
+        //    if (existe) return true;
+        //    return false;
+        //}
 
         public async Task<PaisResponse> CreatePais(PaisRequest request)
         {
-            if (!await IsValidCountry(request.Nombre)) throw new IdInvalidoException(); ;
+            //if (!await IsValidCountry(request.Nombre)) throw new IdInvalidoException(); ;
 
             if (!(_query.GetPais(request.Nombre.ToUpper()) == null)) throw new ElementoYaExisteException();
 
             var pais = new Pais
             {
-                Nombre = request.Nombre
+                Nombre = request.Nombre,
+                Codigo= request.Codigo
             };
             _command.InsertPais(pais);
             return new PaisResponse
             {
                 Id = pais.PaisId,
-                Nombre = request.Nombre
+                Nombre = request.Nombre,
+                Codigo= pais.Codigo
+              
             };
 
         }
@@ -61,7 +64,7 @@ namespace Application.UseCase
             var pais = _query.GetPais(paisId);
             if (pais != null)
             {
-                return new PaisResponse { Id = pais.PaisId, Nombre = pais.Nombre };
+                return new PaisResponse { Id = pais.PaisId, Nombre = pais.Nombre,Codigo=pais.Codigo };
             }
             else throw new ElementoInexistenteException();
         }
@@ -78,7 +81,8 @@ namespace Application.UseCase
                 paisesResponses.Add(new PaisResponse
                 {
                     Id = pais.PaisId,
-                    Nombre = pais.Nombre
+                    Nombre = pais.Nombre,
+                    Codigo = pais.Codigo
                 });
             }
             return paisesResponses;
@@ -93,14 +97,16 @@ namespace Application.UseCase
             return new PaisResponse
             {
                 Id = pais.PaisId,
-                Nombre = pais.Nombre
+                Nombre = pais.Nombre,
+                Codigo = pais.Codigo
+                
             };
         }
 
         public async Task<PaisResponse> UpdatePais(int paisId, PaisRequest request)
         {
 
-            if (!await IsValidCountry(request.Nombre)) throw new IdInvalidoException(); ;
+            //if (!await IsValidCountry(request.Nombre)) throw new IdInvalidoException(); ;
 
             if (_query.GetPais(request.Nombre.ToUpper()) != null) throw new ElementoYaExisteException();
             var pais = _command.UpdatePais(paisId, request);
@@ -108,7 +114,9 @@ namespace Application.UseCase
             return new PaisResponse
             {
                 Id = pais.PaisId,
-                Nombre = pais.Nombre
+                Nombre = pais.Nombre,
+                Codigo = pais.Codigo
+                
             };
 
         }

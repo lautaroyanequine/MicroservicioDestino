@@ -40,8 +40,9 @@ builder.Services.AddTransient<IViajeCiudadQuery, ViajeCiudadQuery>();
 builder.Services.AddScoped<IEscalaService, EscalaService>();
 builder.Services.AddScoped<IEscalaCommand, EscalaCommand>();
 builder.Services.AddTransient<IEscalaQuery, EscalaQuery>();
-
 builder.Services.AddScoped<IClientViaje, ClientViaje>();
+
+
 //await PaisData.SeedPaises(); // HAY QUE EJCUTAR ESTA LINEA PARA TENER TODOS LOS PAISES,NO SE PUEDE DESCOMENTAR PQ NO DEJA HACER LA MIGRACION
 
 

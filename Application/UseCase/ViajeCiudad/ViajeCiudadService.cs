@@ -55,7 +55,9 @@ namespace Application.UseCase
                         Pais = new PaisResponse
                         {
                             Id = _queryPais.GetPais(_queryProvincia.GetProvincia(viajeCiudad.Ciudad.ProvinciaId).PaisId).PaisId,
-                            Nombre = _queryPais.GetPais(_queryProvincia.GetProvincia(viajeCiudad.Ciudad.ProvinciaId).PaisId).Nombre
+                            Nombre = _queryPais.GetPais(_queryProvincia.GetProvincia(viajeCiudad.Ciudad.ProvinciaId).PaisId).Nombre,
+                            Codigo = _queryPais.GetPais(_queryProvincia.GetProvincia(viajeCiudad.Ciudad.ProvinciaId).PaisId).Codigo
+
                         }
                     }
 
@@ -84,7 +86,9 @@ namespace Application.UseCase
                             Pais = new PaisResponse
                             {
                                 Id = _queryPais.GetPais(_queryProvincia.GetProvincia(viajeCiudad.Ciudad.ProvinciaId).PaisId).PaisId,
-                                Nombre = _queryPais.GetPais(_queryProvincia.GetProvincia(viajeCiudad.Ciudad.ProvinciaId).PaisId).Nombre
+                                Nombre = _queryPais.GetPais(_queryProvincia.GetProvincia(viajeCiudad.Ciudad.ProvinciaId).PaisId).Nombre,
+                                Codigo = _queryPais.GetPais(_queryProvincia.GetProvincia(viajeCiudad.Ciudad.ProvinciaId).PaisId).Codigo
+
                             }
                         }
 
@@ -120,7 +124,9 @@ namespace Application.UseCase
                             Pais = new PaisResponse
                             {
                                 Id = _queryPais.GetPais(_queryProvincia.GetProvincia(viajeCiudad.Ciudad.ProvinciaId).PaisId).PaisId,
-                                Nombre = _queryPais.GetPais(_queryProvincia.GetProvincia(viajeCiudad.Ciudad.ProvinciaId).PaisId).Nombre
+                                Nombre = _queryPais.GetPais(_queryProvincia.GetProvincia(viajeCiudad.Ciudad.ProvinciaId).PaisId).Nombre,
+                                Codigo = _queryPais.GetPais(_queryProvincia.GetProvincia(viajeCiudad.Ciudad.ProvinciaId).PaisId).Codigo
+
                             }
                         }
 
@@ -149,7 +155,9 @@ namespace Application.UseCase
                         Pais = new PaisResponse
                         {
                             Id = _queryPais.GetPais(_queryProvincia.GetProvincia(viajeCiudad.Ciudad.ProvinciaId).PaisId).PaisId,
-                            Nombre = _queryPais.GetPais(_queryProvincia.GetProvincia(viajeCiudad.Ciudad.ProvinciaId).PaisId).Nombre
+                            Nombre = _queryPais.GetPais(_queryProvincia.GetProvincia(viajeCiudad.Ciudad.ProvinciaId).PaisId).Nombre,
+                            Codigo = _queryPais.GetPais(_queryProvincia.GetProvincia(viajeCiudad.Ciudad.ProvinciaId).PaisId).Codigo
+
                         }
                     }
 
@@ -180,7 +188,9 @@ namespace Application.UseCase
                         Pais = new PaisResponse
                         {
                             Id = _queryPais.GetPais(_queryProvincia.GetProvincia(viajeCiudad.Ciudad.ProvinciaId).PaisId).PaisId,
-                            Nombre = _queryPais.GetPais(_queryProvincia.GetProvincia(viajeCiudad.Ciudad.ProvinciaId).PaisId).Nombre
+                            Nombre = _queryPais.GetPais(_queryProvincia.GetProvincia(viajeCiudad.Ciudad.ProvinciaId).PaisId).Nombre,
+                            Codigo = _queryPais.GetPais(_queryProvincia.GetProvincia(viajeCiudad.Ciudad.ProvinciaId).PaisId).Codigo
+
                         }
                     }
 
