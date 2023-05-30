@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(DestinosContext))]
-    [Migration("20230528211749_db")]
-    partial class db
+    [Migration("20230530195549_addPaises")]
+    partial class addPaises
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
