@@ -8,7 +8,8 @@ namespace Application.Interfaces
         ViajeCiudadResponse CreateViajeCiudad(ViajeCiudadRequest request);
         ViajeCiudadResponse RemoveViajeCiudad(int viajeCiudadId);
         ViajeCiudadResponse UpdateViajeCiudad(int viajeCiudadId, ViajeCiudadRequest request);
-        List<ViajeCiudadResponse> GetViajeCiudadList();
+        List<ViajeCiudadResponse> GetViajeCiudadList(int? viajeId, string? localizacion);
         ViajeCiudadResponse GetViajeCiudadById(int viajeCiudadId);
+        
     }
 }

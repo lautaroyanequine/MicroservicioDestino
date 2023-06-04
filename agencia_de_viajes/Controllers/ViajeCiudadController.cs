@@ -78,11 +78,11 @@ namespace Destinos.Controllers
         [HttpGet]
         [ProducesResponseType(typeof(ViajeCiudadResponse), 200)]
         [ProducesResponseType(typeof(BadRequest), 400)]
-        public IActionResult GetAll()
+        public IActionResult GetAll(int? viajeId, string? localizacion)
         {
             try
             {
-                var result = _service.GetViajeCiudadList();
+                var result = _service.GetViajeCiudadList(viajeId, localizacion);
                 return new JsonResult(result);
 
             }

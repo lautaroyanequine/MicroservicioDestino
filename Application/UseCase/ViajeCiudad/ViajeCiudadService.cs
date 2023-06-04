@@ -100,9 +100,9 @@ namespace Application.UseCase
             else throw new ElementoInexistenteException();
         }
 
-        public List<ViajeCiudadResponse> GetViajeCiudadList()
+        public List<ViajeCiudadResponse> GetViajeCiudadList(int? viajeId, string? localizacion)
         {
-            var viajesCiudades = _query.GetViajeCiudadList();
+            var viajesCiudades = _query.GetViajeCiudadList(viajeId, localizacion);
             var viajesCiudadesResponse = new List<ViajeCiudadResponse>();
 
             foreach (var viajeCiudad in viajesCiudades)

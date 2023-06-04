@@ -17,12 +17,28 @@ namespace Infrastructure.Query
                  .FirstOrDefault(x => x.ViajeCiudadId == viajeCiudadId);
         }
 
-        public List<ViajeCiudad> GetViajeCiudadList()
+        public List<ViajeCiudad> GetViajeCiudadList(int? viajeId, string? localizacion)
         {
-            return _context.ViajeCiudades.Include(vc => vc.Ciudad)
-                 .ThenInclude(pr => pr.Provincia)
-                 .ThenInclude(pa => pa.Pais)
-        .OrderBy(x => x.ViajeCiudadId).ToList();
+            var ViajeCiudades = _context.ViajeCiudades.Include(vc => vc.Ciudad)
+                .ThenInclude(pr => pr.Provincia)
+                .ThenInclude(pa => pa.Pais)
+                .OrderBy(x => x.ViajeCiudadId)
+                .ToList();
+
+            if (viajeId.HasValue)
+            {
+                ViajeCiudades = ViajeCiudades.Where(vc => vc.ViajeId == viajeId).ToList();
+            }
+
+            if (!string.IsNullOrEmpty(localizacion))
+            {
+                ViajeCiudades = ViajeCiudades.Where(vc =>vc.Ciudad.Nombre.ToLower().Contains(localizacion.ToLower()) 
+                || vc.Ciudad.Provincia.Nombre.ToLower().Contains(localizacion.ToLower()) 
+                || vc.Ciudad.Provincia.Pais.Nombre.ToLower().Contains(localizacion.ToLower())).ToList();
+            }
+
+
+            return ViajeCiudades;
         }
     }
 }
