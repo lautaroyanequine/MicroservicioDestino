@@ -16,22 +16,27 @@ namespace Application.UseCase
         private readonly ICiudadQuery _queryCiudad;
         private readonly IPaisQuery _queryPais;
         private readonly IProvinciaQuery _queryProvincia;
+                private readonly IClientViaje _clientViaje;
 
 
 
-        public ViajeCiudadService(IViajeCiudadQuery query, IViajeCiudadCommand command, ICiudadQuery queryCiudad,IProvinciaQuery queryProvincia,IPaisQuery queryPais)
+
+        public ViajeCiudadService(IViajeCiudadQuery query, IViajeCiudadCommand command, ICiudadQuery queryCiudad,IProvinciaQuery queryProvincia, IPaisQuery queryPais, IClientViaje clientViaje)
         {
             _query = query;
             _command = command;
             _queryCiudad = queryCiudad;
             _queryProvincia = queryProvincia;
             _queryPais = queryPais;
-
+            _clientViaje = clientViaje; 
         }
 
         public ViajeCiudadResponse CreateViajeCiudad(ViajeCiudadRequest request)
         {
             if (_queryCiudad.GetCiudad(request.CiudadId) == null) throw new ElementoInexistenteException();
+
+            var response = _clientViaje.ObtenerViaje(request.ViajeId);
+
 
             var viajeCiudad = new ViajeCiudad
             {
@@ -170,6 +175,9 @@ namespace Application.UseCase
         {
         
             if (_queryCiudad.GetCiudad(request.CiudadId) == null) throw new IdInvalidoException();
+
+            var response = _clientViaje.ObtenerViaje(request.ViajeId);
+
 
             var viajeCiudad = _command.UpdateViajeCiudad(viajeCiudadId, request);
             if (viajeCiudad == null) throw new ElementoInexistenteException();

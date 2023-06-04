@@ -189,6 +189,9 @@ namespace Application.UseCase
             if ((!DateTime.TryParseExact(request.HoraLlegada, format, CultureInfo.InvariantCulture, DateTimeStyles.None, out horaLlegada)) || !(DateTime.TryParseExact(request.HoraSalida, format, CultureInfo.InvariantCulture, DateTimeStyles.None, out horaSalida)))
             throw new HoraInvalidaException();
 
+            var response = _clientViaje.ObtenerViaje(request.ViajeId);
+
+
             var escala = _command.UpdateEscala(escalaId, request,horaLlegada,horaSalida);
             if (escala == null) throw new ElementoInexistenteException();
             return new EscalaResponse
