@@ -23,12 +23,7 @@ namespace Infrastructure.Persistence
 
         public DestinosContext(DbContextOptions<DestinosContext> options)
         : base(options) { }
-        public DestinosContext() { }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(@"Server=localhost;Database=Destinos;Trusted_Connection=True;Encrypt=False;TrustServerCertificate=False",
-            options => options.EnableRetryOnFailure()); ;
-        }
+        
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

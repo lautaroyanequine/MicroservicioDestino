@@ -11,7 +11,7 @@ namespace Infrastructure.Data
         public static async Task SeedPaises()
         {
 
-            using var dbContext = new DestinosContext();
+            using var dbContext = new DestinosContext(null);
             if (!dbContext.Paises.Any())
             {
 
