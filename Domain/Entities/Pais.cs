@@ -6,7 +6,6 @@
         public string Nombre { get; set; }
         public string Codigo { get; set; }
 
-
         public ICollection<Provincia> Provincias { get; set; }
     }
 }

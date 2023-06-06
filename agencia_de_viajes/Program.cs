@@ -39,9 +39,6 @@ builder.Services.AddScoped<IViajeCiudadService, ViajeCiudadService>();
 builder.Services.AddScoped<IViajeCiudadCommand, ViajeCiudadCommand>();
 builder.Services.AddTransient<IViajeCiudadQuery, ViajeCiudadQuery>();
 
-builder.Services.AddScoped<IEscalaService, EscalaService>();
-builder.Services.AddScoped<IEscalaCommand, EscalaCommand>();
-builder.Services.AddTransient<IEscalaQuery, EscalaQuery>();
 builder.Services.AddScoped<IClientViaje, ClientViaje>();
 
 

@@ -15,7 +15,6 @@ namespace Infrastructure.Persistence
         public DbSet<Provincia> Provincias { get; set; }
 
         public DbSet<Pais> Paises { get; set; }
-        public DbSet<Escala> Escalas { get; set; }
 
         public DbSet<Ciudad> Ciudades { get; set; }
 
@@ -31,7 +30,6 @@ namespace Infrastructure.Persistence
             new PaisConfiguration(modelBuilder.Entity<Pais>());
             new ProvinciaConfiguration(modelBuilder.Entity<Provincia>());
             new CiudadConfiguration(modelBuilder.Entity<Ciudad>());
-            new EscalaConfiguration(modelBuilder.Entity<Escala>());
             new ViajeCiudadConfiguration(modelBuilder.Entity<ViajeCiudad>());
          
 
