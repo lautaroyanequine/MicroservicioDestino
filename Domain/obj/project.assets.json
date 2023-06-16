@@ -5600,19 +5600,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Administrador\\.nuget\\packages\\": {}
+    "C:\\Users\\solow\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\1_C_2023_UNI\\TP-GRUPAL\\Microservio.Destino\\Domain\\Domain.csproj",
+      "projectUniqueName": "C:\\Users\\solow\\Desktop\\Primer Cuatrimestre\\Proyecto de Software N°1\\Proyecto Grupal\\Microservio.Destino\\Domain\\Domain.csproj",
       "projectName": "Domain",
-      "projectPath": "D:\\1_C_2023_UNI\\TP-GRUPAL\\Microservio.Destino\\Domain\\Domain.csproj",
-      "packagesPath": "C:\\Users\\Administrador\\.nuget\\packages\\",
-      "outputPath": "D:\\1_C_2023_UNI\\TP-GRUPAL\\Microservio.Destino\\Domain\\obj\\",
+      "projectPath": "C:\\Users\\solow\\Desktop\\Primer Cuatrimestre\\Proyecto de Software N°1\\Proyecto Grupal\\Microservio.Destino\\Domain\\Domain.csproj",
+      "packagesPath": "C:\\Users\\solow\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\solow\\Desktop\\Primer Cuatrimestre\\Proyecto de Software N°1\\Proyecto Grupal\\Microservio.Destino\\Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Administrador\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\solow\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5667,7 +5667,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

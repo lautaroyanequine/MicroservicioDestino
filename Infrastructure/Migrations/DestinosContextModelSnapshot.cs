@@ -41,6 +41,134 @@ namespace Infrastructure.Migrations
                     b.HasIndex("ProvinciaId");
 
                     b.ToTable("Ciudad", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            CiudadId = 1,
+                            Nombre = "La Plata",
+                            ProvinciaId = 1
+                        },
+                        new
+                        {
+                            CiudadId = 2,
+                            Nombre = "Mar del Plata",
+                            ProvinciaId = 1
+                        },
+                        new
+                        {
+                            CiudadId = 3,
+                            Nombre = "Bahía Blanca",
+                            ProvinciaId = 1
+                        },
+                        new
+                        {
+                            CiudadId = 4,
+                            Nombre = "San Nicolás de los Arroyos",
+                            ProvinciaId = 1
+                        },
+                        new
+                        {
+                            CiudadId = 5,
+                            Nombre = "Pergamino",
+                            ProvinciaId = 1
+                        },
+                        new
+                        {
+                            CiudadId = 6,
+                            Nombre = "Tandil",
+                            ProvinciaId = 1
+                        },
+                        new
+                        {
+                            CiudadId = 7,
+                            Nombre = "Junín",
+                            ProvinciaId = 1
+                        },
+                        new
+                        {
+                            CiudadId = 8,
+                            Nombre = "Olavarría",
+                            ProvinciaId = 1
+                        },
+                        new
+                        {
+                            CiudadId = 9,
+                            Nombre = "Azul",
+                            ProvinciaId = 1
+                        },
+                        new
+                        {
+                            CiudadId = 10,
+                            Nombre = "Necochea",
+                            ProvinciaId = 1
+                        },
+                        new
+                        {
+                            CiudadId = 11,
+                            Nombre = "Zárate",
+                            ProvinciaId = 1
+                        },
+                        new
+                        {
+                            CiudadId = 12,
+                            Nombre = "Campana",
+                            ProvinciaId = 1
+                        },
+                        new
+                        {
+                            CiudadId = 13,
+                            Nombre = "Morón",
+                            ProvinciaId = 1
+                        },
+                        new
+                        {
+                            CiudadId = 14,
+                            Nombre = "Quilmes",
+                            ProvinciaId = 1
+                        },
+                        new
+                        {
+                            CiudadId = 15,
+                            Nombre = "Avellaneda",
+                            ProvinciaId = 1
+                        },
+                        new
+                        {
+                            CiudadId = 16,
+                            Nombre = "Lomas de Zamora",
+                            ProvinciaId = 1
+                        },
+                        new
+                        {
+                            CiudadId = 17,
+                            Nombre = "Lanús",
+                            ProvinciaId = 1
+                        },
+                        new
+                        {
+                            CiudadId = 18,
+                            Nombre = "San Isidro",
+                            ProvinciaId = 1
+                        },
+                        new
+                        {
+                            CiudadId = 19,
+                            Nombre = "Tigre",
+                            ProvinciaId = 1
+                        },
+                        new
+                        {
+                            CiudadId = 20,
+                            Nombre = "Vicente López",
+                            ProvinciaId = 1
+                        },
+                        new
+                        {
+                            CiudadId = 21,
+                            Nombre = "Varela",
+                            ProvinciaId = 1
+                        });
                 });
 
             modelBuilder.Entity("Domain.Entities.Pais", b =>
@@ -62,6 +190,26 @@ namespace Infrastructure.Migrations
                     b.HasKey("PaisId");
 
                     b.ToTable("Pais", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            PaisId = 1,
+                            Codigo = "Arg",
+                            Nombre = "Argentina"
+                        },
+                        new
+                        {
+                            PaisId = 2,
+                            Codigo = "Br",
+                            Nombre = "Brasil"
+                        },
+                        new
+                        {
+                            PaisId = 3,
+                            Codigo = "Uy",
+                            Nombre = "Uruguay"
+                        });
                 });
 
             modelBuilder.Entity("Domain.Entities.Provincia", b =>
@@ -84,6 +232,26 @@ namespace Infrastructure.Migrations
                     b.HasIndex("PaisId");
 
                     b.ToTable("Provincia", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            ProvinciaId = 1,
+                            Nombre = "Buenos Aires",
+                            PaisId = 1
+                        },
+                        new
+                        {
+                            ProvinciaId = 2,
+                            Nombre = "Tierra del Fuego",
+                            PaisId = 1
+                        },
+                        new
+                        {
+                            ProvinciaId = 3,
+                            Nombre = "Bahía",
+                            PaisId = 2
+                        });
                 });
 
             modelBuilder.Entity("Domain.Entities.ViajeCiudad", b =>
@@ -108,7 +276,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("CiudadId");
 
-                    b.ToTable("ViajeCiudad", (string)null);
+                    b.ToTable("ViajeCiudades");
                 });
 
             modelBuilder.Entity("Domain.Entities.Ciudad", b =>

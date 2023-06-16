@@ -48,7 +48,7 @@ namespace Destinos.Controllers
         {
             try
             {
-                var result = _service.GetProvinciaList(orden,nombre,pais);
+                var result = _service.GetProvinciaList(orden, nombre, pais);
                 return new JsonResult(result);
 
             }

@@ -1,10 +1,8 @@
 ﻿using Application.Exceptions;
 using Application.Interfaces;
 using Application.Request;
-using Application.Request.Ciudad;
 using Application.Request.ViajeCiudad;
 using Application.Response.Ciudad;
-using Application.Response.Provincia;
 using Application.Response.ViajeCiudad;
 using Microsoft.AspNetCore.Mvc;
 
@@ -126,7 +124,7 @@ namespace Destinos.Controllers
                 return new JsonResult(result);
             }
 
-            
+
             catch (IdInvalidoException idInvalido)
             {
                 return NotFound(new { message = "La ciudad que desea ingresar no existe" });

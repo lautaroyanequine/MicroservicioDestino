@@ -32,8 +32,8 @@ namespace Infrastructure.Query
 
             if (!string.IsNullOrEmpty(localizacion))
             {
-                ViajeCiudades = ViajeCiudades.Where(vc =>vc.Ciudad.Nombre.ToLower().Contains(localizacion.ToLower()) 
-                || vc.Ciudad.Provincia.Nombre.ToLower().Contains(localizacion.ToLower()) 
+                ViajeCiudades = ViajeCiudades.Where(vc => vc.Ciudad.Nombre.ToLower().Contains(localizacion.ToLower())
+                || vc.Ciudad.Provincia.Nombre.ToLower().Contains(localizacion.ToLower())
                 || vc.Ciudad.Provincia.Pais.Nombre.ToLower().Contains(localizacion.ToLower())).ToList();
             }
 

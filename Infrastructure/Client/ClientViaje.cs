@@ -1,10 +1,9 @@
 ﻿using Application.Exceptions;
 using Application.Interfaces;
-using System.Net.Http;
 
 namespace Infrastructure.Client
 {
-    public class ClientViaje: IClientViaje
+    public class ClientViaje : IClientViaje
     {
         private readonly HttpClient _httpClient;
 

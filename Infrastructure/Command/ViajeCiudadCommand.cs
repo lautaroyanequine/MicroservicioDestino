@@ -31,7 +31,7 @@ namespace Infrastructure.Command
                 _context.Remove(viajeCiudad);
                 _context.SaveChanges();
             }
-         
+
 
             return viajeCiudad;
         }

@@ -1,14 +1,11 @@
 
 using Application.Interfaces;
 using Application.UseCase;
-using Domain.Entities;
 using Infrastructure.Client;
 using Infrastructure.Command;
-using Infrastructure.Data;
 using Infrastructure.Persistence;
 using Infrastructure.Query;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -40,10 +37,6 @@ builder.Services.AddScoped<IViajeCiudadCommand, ViajeCiudadCommand>();
 builder.Services.AddTransient<IViajeCiudadQuery, ViajeCiudadQuery>();
 
 builder.Services.AddScoped<IClientViaje, ClientViaje>();
-
-
-//await PaisData.SeedPaises(); // HAY QUE EJCUTAR ESTA LINEA PARA TENER TODOS LOS PAISES,NO SE PUEDE DESCOMENTAR PQ NO DEJA HACER LA MIGRACION
-
 
 var app = builder.Build();
 

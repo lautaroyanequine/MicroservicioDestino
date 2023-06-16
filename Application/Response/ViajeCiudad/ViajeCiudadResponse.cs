@@ -7,5 +7,6 @@ namespace Application.Response.ViajeCiudad
         public int Id { get; set; }
         public int ViajeId { get; set; }
         public CiudadResponse Ciudad { get; set; }
+        public string Tipo { get; set; }
     }
 }

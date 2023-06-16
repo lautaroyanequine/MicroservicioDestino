@@ -22,7 +22,7 @@ namespace Infrastructure.Command
 
         public Ciudad RemoveCiudad(int ciudadId)
         {
-            var entryOriginal = _context.Ciudades.Include(c =>c.Provincia)
+            var entryOriginal = _context.Ciudades.Include(c => c.Provincia)
                 .ThenInclude(pa => pa.Pais).FirstOrDefault(x => x.CiudadId == ciudadId);
             if (entryOriginal != null)
             {

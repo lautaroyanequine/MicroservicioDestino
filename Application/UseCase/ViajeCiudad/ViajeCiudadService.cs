@@ -16,43 +16,44 @@ namespace Application.UseCase
         private readonly ICiudadQuery _queryCiudad;
         private readonly IPaisQuery _queryPais;
         private readonly IProvinciaQuery _queryProvincia;
-                private readonly IClientViaje _clientViaje;
+        private readonly IClientViaje _clientViaje;
 
 
 
 
-        public ViajeCiudadService(IViajeCiudadQuery query, IViajeCiudadCommand command, ICiudadQuery queryCiudad,IProvinciaQuery queryProvincia, IPaisQuery queryPais, IClientViaje clientViaje)
+        public ViajeCiudadService(IViajeCiudadQuery query, IViajeCiudadCommand command, ICiudadQuery queryCiudad, IProvinciaQuery queryProvincia, IPaisQuery queryPais, IClientViaje clientViaje)
         {
             _query = query;
             _command = command;
             _queryCiudad = queryCiudad;
             _queryProvincia = queryProvincia;
             _queryPais = queryPais;
-            _clientViaje = clientViaje; 
+            _clientViaje = clientViaje;
         }
 
         public ViajeCiudadResponse CreateViajeCiudad(ViajeCiudadRequest request)
         {
             if (_queryCiudad.GetCiudad(request.CiudadId) == null) throw new ElementoInexistenteException();
 
-            var response = _clientViaje.ObtenerViaje(request.ViajeId);
+            //var response = _clientViaje.ObtenerViaje(request.ViajeId);
 
 
             var viajeCiudad = new ViajeCiudad
             {
                 CiudadId = request.CiudadId,
                 ViajeId = request.ViajeId,
-                Ciudad= _queryCiudad.GetCiudad(request.CiudadId)
+                Ciudad = _queryCiudad.GetCiudad(request.CiudadId),
+                Tipo = request.Tipo
             };
             _command.InsertViajeCiudad(viajeCiudad);
             return new ViajeCiudadResponse
             {
                 Id = viajeCiudad.ViajeCiudadId,
-                Ciudad =new CiudadResponse
+                Ciudad = new CiudadResponse
                 {
-                    Id= viajeCiudad.CiudadId,
-                    Nombre=viajeCiudad.Ciudad.Nombre,
-                    Provincia= new ProvinciaResponse
+                    Id = viajeCiudad.CiudadId,
+                    Nombre = viajeCiudad.Ciudad.Nombre,
+                    Provincia = new ProvinciaResponse
                     {
 
                         Id = _queryProvincia.GetProvincia(viajeCiudad.Ciudad.ProvinciaId).ProvinciaId,
@@ -136,7 +137,9 @@ namespace Application.UseCase
                         }
 
                     },
-                    ViajeId = viajeCiudad.ViajeId});
+                    ViajeId = viajeCiudad.ViajeId,
+                    Tipo = viajeCiudad.Tipo
+                });
             }
             return viajesCiudadesResponse;
         }
@@ -173,7 +176,7 @@ namespace Application.UseCase
 
         public ViajeCiudadResponse UpdateViajeCiudad(int viajeCiudadId, ViajeCiudadRequest request)
         {
-        
+
             if (_queryCiudad.GetCiudad(request.CiudadId) == null) throw new IdInvalidoException();
 
             var response = _clientViaje.ObtenerViaje(request.ViajeId);

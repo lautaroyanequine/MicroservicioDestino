@@ -1,7 +1,6 @@
 ﻿using Application.Response.Pais;
 using Domain.Entities;
 using Infrastructure.Persistence;
-using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 
 namespace Infrastructure.Data
@@ -15,12 +14,9 @@ namespace Infrastructure.Data
             if (!dbContext.Paises.Any())
             {
 
-            
-
-
                 HttpClient client = new HttpClient();
-            string url = "https://restcountries.com/v3.1/all";
-            HttpResponseMessage response = await client.GetAsync(url);
+                string url = "https://restcountries.com/v3.1/all";
+                HttpResponseMessage response = await client.GetAsync(url);
                 if (response.IsSuccessStatusCode)
                 {
                     string json = await response.Content.ReadAsStringAsync();

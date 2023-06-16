@@ -2,10 +2,12 @@
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class arreglosEscalaMurio : Migration
+    public partial class Destino : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -65,7 +67,7 @@ namespace Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ViajeCiudad",
+                name: "ViajeCiudades",
                 columns: table => new
                 {
                     ViajeCiudadId = table.Column<int>(type: "int", nullable: false)
@@ -76,13 +78,61 @@ namespace Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ViajeCiudad", x => x.ViajeCiudadId);
+                    table.PrimaryKey("PK_ViajeCiudades", x => x.ViajeCiudadId);
                     table.ForeignKey(
-                        name: "FK_ViajeCiudad_Ciudad_CiudadId",
+                        name: "FK_ViajeCiudades_Ciudad_CiudadId",
                         column: x => x.CiudadId,
                         principalTable: "Ciudad",
                         principalColumn: "CiudadId",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Pais",
+                columns: new[] { "PaisId", "Codigo", "Nombre" },
+                values: new object[,]
+                {
+                    { 1, "Arg", "Argentina" },
+                    { 2, "Br", "Brasil" },
+                    { 3, "Uy", "Uruguay" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Provincia",
+                columns: new[] { "ProvinciaId", "Nombre", "PaisId" },
+                values: new object[,]
+                {
+                    { 1, "Buenos Aires", 1 },
+                    { 2, "Tierra del Fuego", 1 },
+                    { 3, "Bahía", 2 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Ciudad",
+                columns: new[] { "CiudadId", "Nombre", "ProvinciaId" },
+                values: new object[,]
+                {
+                    { 1, "La Plata", 1 },
+                    { 2, "Mar del Plata", 1 },
+                    { 3, "Bahía Blanca", 1 },
+                    { 4, "San Nicolás de los Arroyos", 1 },
+                    { 5, "Pergamino", 1 },
+                    { 6, "Tandil", 1 },
+                    { 7, "Junín", 1 },
+                    { 8, "Olavarría", 1 },
+                    { 9, "Azul", 1 },
+                    { 10, "Necochea", 1 },
+                    { 11, "Zárate", 1 },
+                    { 12, "Campana", 1 },
+                    { 13, "Morón", 1 },
+                    { 14, "Quilmes", 1 },
+                    { 15, "Avellaneda", 1 },
+                    { 16, "Lomas de Zamora", 1 },
+                    { 17, "Lanús", 1 },
+                    { 18, "San Isidro", 1 },
+                    { 19, "Tigre", 1 },
+                    { 20, "Vicente López", 1 },
+                    { 21, "Varela", 1 }
                 });
 
             migrationBuilder.CreateIndex(
@@ -96,8 +146,8 @@ namespace Infrastructure.Migrations
                 column: "PaisId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ViajeCiudad_CiudadId",
-                table: "ViajeCiudad",
+                name: "IX_ViajeCiudades_CiudadId",
+                table: "ViajeCiudades",
                 column: "CiudadId");
         }
 
@@ -105,7 +155,7 @@ namespace Infrastructure.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "ViajeCiudad");
+                name: "ViajeCiudades");
 
             migrationBuilder.DropTable(
                 name: "Ciudad");

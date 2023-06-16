@@ -10,6 +10,6 @@ namespace Application.Interfaces
         ViajeCiudadResponse UpdateViajeCiudad(int viajeCiudadId, ViajeCiudadRequest request);
         List<ViajeCiudadResponse> GetViajeCiudadList(int? viajeId, string? localizacion);
         ViajeCiudadResponse GetViajeCiudadById(int viajeCiudadId);
-        
+
     }
 }

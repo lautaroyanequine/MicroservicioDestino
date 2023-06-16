@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Infrastructure.Config
 {
-    public class ProvinciaConfiguration
+    public class ProvinciaConfiguration : IEntityTypeConfiguration<Provincia>
     {
-        public  ProvinciaConfiguration(EntityTypeBuilder<Provincia> entityBuilder)
+        public void Configure(EntityTypeBuilder<Provincia> entityBuilder)
         {
             entityBuilder.ToTable("Provincia");
             entityBuilder.Property(m => m.ProvinciaId).ValueGeneratedOnAdd();

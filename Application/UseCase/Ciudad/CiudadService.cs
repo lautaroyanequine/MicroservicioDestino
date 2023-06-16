@@ -96,7 +96,7 @@ namespace Application.UseCase
 
             }
 
-            var ciudades = _query.GetCiudadList(orden,nombre,provincia,pais);
+            var ciudades = _query.GetCiudadList(orden, nombre, provincia, pais);
             var ciudadesResponse = new List<CiudadResponse>();
 
             foreach (var ciudad in ciudades)
@@ -113,7 +113,7 @@ namespace Application.UseCase
                         {
                             Id = _queryProvincia.GetProvincia(ciudad.ProvinciaId).PaisId,
                             Nombre = _queryProvincia.GetProvincia(ciudad.ProvinciaId).Pais.Nombre,
-                           Codigo = _queryProvincia.GetProvincia(ciudad.ProvinciaId).Pais.Codigo
+                            Codigo = _queryProvincia.GetProvincia(ciudad.ProvinciaId).Pais.Codigo
 
                         }
                     }

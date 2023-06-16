@@ -32,7 +32,7 @@ namespace Infrastructure.Query
             {
                 query = query.Where(p => p.Nombre.StartsWith(nombre));
             }
-        
+
             if (orden.ToUpper() == "ASC") query = query.OrderBy(p => p.Nombre);
             else if (orden.ToUpper() == "DESC") query = query.OrderByDescending(p => p.Nombre);
 

@@ -46,15 +46,15 @@ namespace Application.UseCase
             var pais = new Pais
             {
                 Nombre = request.Nombre,
-                Codigo= request.Codigo
+                Codigo = request.Codigo
             };
             _command.InsertPais(pais);
             return new PaisResponse
             {
                 Id = pais.PaisId,
                 Nombre = request.Nombre,
-                Codigo= pais.Codigo
-              
+                Codigo = pais.Codigo
+
             };
 
         }
@@ -64,7 +64,7 @@ namespace Application.UseCase
             var pais = _query.GetPais(paisId);
             if (pais != null)
             {
-                return new PaisResponse { Id = pais.PaisId, Nombre = pais.Nombre,Codigo=pais.Codigo };
+                return new PaisResponse { Id = pais.PaisId, Nombre = pais.Nombre, Codigo = pais.Codigo };
             }
             else throw new ElementoInexistenteException();
         }
@@ -73,7 +73,7 @@ namespace Application.UseCase
         {
             if (orden.ToUpper() != "ASC" && orden.ToUpper() != "DESC") throw new DatoInvalidoException();
 
-            var paises = _query.GetPaisList(orden,nombre);
+            var paises = _query.GetPaisList(orden, nombre);
             var paisesResponses = new List<PaisResponse>();
 
             foreach (var pais in paises)
@@ -99,7 +99,7 @@ namespace Application.UseCase
                 Id = pais.PaisId,
                 Nombre = pais.Nombre,
                 Codigo = pais.Codigo
-                
+
             };
         }
 
@@ -116,7 +116,7 @@ namespace Application.UseCase
                 Id = pais.PaisId,
                 Nombre = pais.Nombre,
                 Codigo = pais.Codigo
-                
+
             };
 
         }

@@ -43,11 +43,11 @@ namespace Destinos.Controllers
         [HttpGet]
         [ProducesResponseType(typeof(CiudadResponse), 200)]
         [ProducesResponseType(typeof(BadRequest), 400)]
-        public IActionResult GetAll([FromQuery]string? orden = "ASC", string? nombre = null,string? provincia=null ,string? pais = null)
+        public IActionResult GetAll([FromQuery] string? orden = "ASC", string? nombre = null, string? provincia = null, string? pais = null)
         {
             try
             {
-                var result = _service.GetCiudadList(orden,nombre,provincia,pais);
+                var result = _service.GetCiudadList(orden, nombre, provincia, pais);
                 return new JsonResult(result);
 
             }
@@ -71,7 +71,7 @@ namespace Destinos.Controllers
                 return BadRequest(new { message = "Algun parametro ingresado es invalido" });
 
             }
-            
+
         }
 
         [HttpGet("{id}")]

@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Infrastructure.Config
 {
-    public class ViajeCiudadConfiguration
+    public class ViajeCiudadConfiguration : IEntityTypeConfiguration<ViajeCiudad>
     {
-        public  ViajeCiudadConfiguration(EntityTypeBuilder<ViajeCiudad> entityBuilder)
+        public void Configure(EntityTypeBuilder<ViajeCiudad> entityBuilder)
         {
             entityBuilder.ToTable("ViajeCiudad");
             entityBuilder.HasKey(e => e.ViajeCiudadId);

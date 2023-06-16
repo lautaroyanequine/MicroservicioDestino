@@ -22,8 +22,8 @@ namespace Application.UseCase
 
         public ProvinciaResponse CreateProvincia(ProvinciaRequest request)
         {
-            if (!(_query.GetProvincia(request.Nombre.ToUpper()) == null) && _query.GetProvincia(request.Nombre).PaisId==request.PaisId ) throw new ElementoYaExisteException();
-    
+            if (!(_query.GetProvincia(request.Nombre.ToUpper()) == null) && _query.GetProvincia(request.Nombre).PaisId == request.PaisId) throw new ElementoYaExisteException();
+
             if (_queryPais.GetPais(request.PaisId) == null) throw new ElementoInexistenteException();
 
 
@@ -31,7 +31,7 @@ namespace Application.UseCase
             {
                 Nombre = request.Nombre,
                 PaisId = request.PaisId,
-                Pais= _queryPais.GetPais(request.PaisId)
+                Pais = _queryPais.GetPais(request.PaisId)
 
             };
 
@@ -77,11 +77,11 @@ namespace Application.UseCase
             if (orden.ToUpper() != "ASC" && orden.ToUpper() != "DESC") throw new DatoInvalidoException();
             if (pais != null)
             {
-               if( _queryPais.GetPais(pais) == null) throw new IdInvalidoException();
+                if (_queryPais.GetPais(pais) == null) throw new IdInvalidoException();
 
             }
 
-            var provincias = _query.GetProvinciaList(orden,nombre,pais);
+            var provincias = _query.GetProvinciaList(orden, nombre, pais);
             var provinciasResponse = new List<ProvinciaResponse>();
 
             foreach (var provincia in provincias)

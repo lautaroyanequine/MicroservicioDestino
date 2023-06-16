@@ -22,11 +22,11 @@ namespace Destinos.Controllers
         [ProducesResponseType(typeof(PaisResponse), 201)]
         [ProducesResponseType(typeof(BadRequest), 409)]
         [ProducesResponseType(typeof(BadRequest), 400)]
-        public async  Task<IActionResult> CreatePais(PaisRequest request)
+        public async Task<IActionResult> CreatePais(PaisRequest request)
         {
             try
             {
-                var result = await  _service.CreatePais(request);
+                var result = await _service.CreatePais(request);
                 return new JsonResult(result) { StatusCode = StatusCodes.Status201Created };
 
             }
@@ -35,7 +35,7 @@ namespace Destinos.Controllers
                 return Conflict(new { message = "No se pudo crear porque ya existe el pais" });
 
             }
-            catch(IdInvalidoException)
+            catch (IdInvalidoException)
             {
                 return BadRequest(new { message = "Él pais que quiere ingresar no existe" });
 
@@ -54,7 +54,7 @@ namespace Destinos.Controllers
         {
             try
             {
-                var result = _service.GetPaisList(orden,nombre);
+                var result = _service.GetPaisList(orden, nombre);
                 return new JsonResult(result);
 
             }
