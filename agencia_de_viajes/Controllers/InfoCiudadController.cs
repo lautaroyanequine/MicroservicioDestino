@@ -1,5 +1,9 @@
-﻿using Application.Interfaces.IInfoCiudad;
+﻿using Application.Exceptions;
+using Application.Interfaces.IInfoCiudad;
+using Application.Request;
 using Application.Request.InfoCiudad;
+using Application.Response.Ciudad;
+using Application.Response.InfoCiudad;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,10 +21,21 @@ namespace Destinos.Controllers
         }
 
         [HttpPost]
+        [ProducesResponseType(typeof(InfoCiudadResponse), 201)]
+        [ProducesResponseType(typeof(BadRequest), 400)]
         public IActionResult crearInfoCiudad(InfoCiudadRequest request)
         {
-            var result = _services.CrearInfoCiudad(request);
-            return Ok(result);
+            try
+            {
+                var result = _services.CrearInfoCiudad(request);
+                return new JsonResult(result) { StatusCode = 201};
+            }
+            catch (DatoInvalidoException e)
+            {
+                return BadRequest(new { message = "Ingreso una ciudad inexistente" });
+            }
+            
+            
         }
     }
 }

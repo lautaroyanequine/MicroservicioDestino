@@ -1,4 +1,5 @@
-﻿using Application.Interfaces.ICiudad;
+﻿using Application.Exceptions;
+using Application.Interfaces.ICiudad;
 using Application.Interfaces.IInfoCiudad;
 using Application.Request.InfoCiudad;
 using Application.Response.InfoCiudad;
@@ -27,6 +28,10 @@ namespace Application.UseCase.InfoCiudades
                 Descripcion = request.Descripcion,
                 ImagenUrl = request.Imagen
             };
+
+           var city = _ciudadService.GetCiudadById(request.Ciudad_Id);
+
+            if(city == null) { throw new DatoInvalidoException(); };
 
             var newInfoCiudad = _command.CreateInfoCiudad(infoCiudadResponse);
             return GetById(newInfoCiudad.InfoCiudadId);
