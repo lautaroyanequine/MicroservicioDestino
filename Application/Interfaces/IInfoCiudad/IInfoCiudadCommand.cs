@@ -9,10 +9,10 @@ namespace Application.Interfaces.IInfoCiudad
 {
     public interface IInfoCiudadCommand
     {
-        InfoCiudad createInfoCiudad(InfoCiudad infoCiudad);
+        InfoCiudad CreateInfoCiudad(InfoCiudad infoCiudad);
 
-        InfoCiudad modifyInfoCiudad(int infoCiudadId, InfoCiudad infoCiudad);
+        InfoCiudad UpdateInfoCiudad(int infoCiudadId, InfoCiudad infoCiudad);
 
-        InfoCiudad deleteInfoCiudad(int infoCiudadId);
+        InfoCiudad DeleteInfoCiudad(int infoCiudadId);
     }
 }

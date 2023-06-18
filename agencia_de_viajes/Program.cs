@@ -1,10 +1,12 @@
 
 using Application.Interfaces;
 using Application.Interfaces.ICiudad;
+using Application.Interfaces.IInfoCiudad;
 using Application.Interfaces.IPais;
 using Application.Interfaces.IProvincia;
 using Application.Interfaces.IViajeCiudad;
 using Application.UseCase;
+using Application.UseCase.InfoCiudades;
 using Infrastructure.Client;
 using Infrastructure.Command;
 using Infrastructure.Persistence;
@@ -24,23 +26,32 @@ builder.Services.AddSwaggerGen();
 var connectionString = builder.Configuration["ConnectionString"];
 builder.Services.AddDbContext<DestinosContext>(options => options.UseSqlServer(connectionString));
 
+//Pais
 builder.Services.AddScoped<IPaisService, PaisService>();
 builder.Services.AddScoped<IPaisCommand, PaisCommand>();
 builder.Services.AddTransient<IPaisQuery, PaisQuery>();
 
+//Provincia
 builder.Services.AddScoped<IProvinciaService, ProvinciaService>();
 builder.Services.AddScoped<IProvinciaCommand, ProvinciaCommand>();
 builder.Services.AddTransient<IProvinciaQuery, ProvinciaQuery>();
 
+//Ciudad
 builder.Services.AddScoped<ICiudadService, CiudadService>();
 builder.Services.AddScoped<ICiudadCommand, CiudadCommand>();
 builder.Services.AddTransient<ICiudadQuery, CiudadQuery>();
 
+//viajeCiudad
 builder.Services.AddScoped<IViajeCiudadService, ViajeCiudadService>();
 builder.Services.AddScoped<IViajeCiudadCommand, ViajeCiudadCommand>();
 builder.Services.AddTransient<IViajeCiudadQuery, ViajeCiudadQuery>();
 
 builder.Services.AddScoped<IClientViaje, ClientViaje>();
+
+//infoCiudad
+builder.Services.AddScoped<IInfoCiudadCommand, InfoCiudadCommand>();
+builder.Services.AddScoped<IInfoCiudadQuery, InfoCiudadQuery>();
+builder.Services.AddScoped<IInfoCiudadService, InfoCiudadService>();
 
 var app = builder.Build();
 

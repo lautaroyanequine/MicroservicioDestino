@@ -14,6 +14,7 @@ namespace Infrastructure.Config
         public void Configure(EntityTypeBuilder<InfoCiudad> entityBuilder)
         {
             entityBuilder.ToTable("InfoCiudad");
+            entityBuilder.HasKey(inf => inf.InfoCiudadId);
 
             entityBuilder.HasOne(inf => inf.Ciudad)
                 .WithOne(c => c.infoCiudad)

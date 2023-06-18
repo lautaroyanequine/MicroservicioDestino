@@ -9,8 +9,10 @@ namespace Application.Interfaces.IInfoCiudad
 {
     public interface IInfoCiudadQuery
     {
-        InfoCiudad getById(int InfoCiudadId);
+        InfoCiudad GetById(int InfoCiudadId);
 
-        InfoCiudad getByCiudad(int CiudadId);
+        InfoCiudad GetByCiudad(int CiudadId);
+
+        List<InfoCiudad> GetAll();
     }
 }

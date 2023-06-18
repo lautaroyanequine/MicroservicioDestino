@@ -12,6 +12,8 @@ namespace Infrastructure.Persistence
         public DbSet<Pais> Paises { get; set; }
         public DbSet<Ciudad> Ciudades { get; set; }
 
+        public DbSet<InfoCiudad> infoCiudades { get; set; }
+
         public DestinosContext(DbContextOptions<DestinosContext> options)
         : base(options) { }
 
