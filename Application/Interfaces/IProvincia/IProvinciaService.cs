@@ -1,7 +1,7 @@
 ﻿using Application.Request.Provincia;
 using Application.Response.Provincia;
 
-namespace Application.Interfaces
+namespace Application.Interfaces.IProvincia
 {
     public interface IProvinciaService
     {

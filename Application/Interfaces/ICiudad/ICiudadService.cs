@@ -1,7 +1,7 @@
 ﻿using Application.Request.Ciudad;
 using Application.Response.Ciudad;
 
-namespace Application.Interfaces
+namespace Application.Interfaces.ICiudad
 {
     public interface ICiudadService
     {

@@ -1,4 +1,4 @@
-﻿using Application.Interfaces;
+﻿using Application.Interfaces.ICiudad;
 using Application.Request.Ciudad;
 using Domain.Entities;
 using Infrastructure.Persistence;

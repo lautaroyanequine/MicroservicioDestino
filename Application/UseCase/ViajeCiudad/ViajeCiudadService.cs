@@ -1,5 +1,9 @@
 ﻿using Application.Exceptions;
 using Application.Interfaces;
+using Application.Interfaces.ICiudad;
+using Application.Interfaces.IPais;
+using Application.Interfaces.IProvincia;
+using Application.Interfaces.IViajeCiudad;
 using Application.Request.ViajeCiudad;
 using Application.Response.Ciudad;
 using Application.Response.Pais;

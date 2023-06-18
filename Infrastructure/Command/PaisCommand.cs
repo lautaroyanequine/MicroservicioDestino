@@ -1,4 +1,4 @@
-﻿using Application.Interfaces;
+﻿using Application.Interfaces.IPais;
 using Application.Request.Pais;
 using Domain.Entities;
 using Infrastructure.Persistence;

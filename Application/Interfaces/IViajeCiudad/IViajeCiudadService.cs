@@ -1,7 +1,7 @@
 ﻿using Application.Request.ViajeCiudad;
 using Application.Response.ViajeCiudad;
 
-namespace Application.Interfaces
+namespace Application.Interfaces.IViajeCiudad
 {
     public interface IViajeCiudadService
     {

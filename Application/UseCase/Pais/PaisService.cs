@@ -1,5 +1,5 @@
 ﻿using Application.Exceptions;
-using Application.Interfaces;
+using Application.Interfaces.IPais;
 using Application.Request.Pais;
 using Application.Response.Pais;
 using Domain.Entities;

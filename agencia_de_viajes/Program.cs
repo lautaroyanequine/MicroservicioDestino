@@ -1,5 +1,9 @@
 
 using Application.Interfaces;
+using Application.Interfaces.ICiudad;
+using Application.Interfaces.IPais;
+using Application.Interfaces.IProvincia;
+using Application.Interfaces.IViajeCiudad;
 using Application.UseCase;
 using Infrastructure.Client;
 using Infrastructure.Command;

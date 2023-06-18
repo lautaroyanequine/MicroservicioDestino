@@ -1,7 +1,7 @@
 ﻿using Application.Request.ViajeCiudad;
 using Domain.Entities;
 
-namespace Application.Interfaces
+namespace Application.Interfaces.IViajeCiudad
 {
     public interface IViajeCiudadCommand
     {

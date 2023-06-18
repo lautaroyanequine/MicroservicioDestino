@@ -26,6 +26,8 @@ namespace Infrastructure.Persistence
 
             modelBuilder.ApplyConfiguration(new CiudadConfiguration());
             modelBuilder.ApplyConfiguration(new CiudadData());
+
+            modelBuilder.ApplyConfiguration(new InfoCiudadConfiguration());
         }
     }
 

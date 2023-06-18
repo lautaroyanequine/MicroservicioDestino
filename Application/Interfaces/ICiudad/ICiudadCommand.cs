@@ -1,7 +1,7 @@
 ﻿using Application.Request.Ciudad;
 using Domain.Entities;
 
-namespace Application.Interfaces
+namespace Application.Interfaces.ICiudad
 {
     public interface ICiudadCommand
     {

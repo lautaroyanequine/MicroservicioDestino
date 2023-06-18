@@ -1,4 +1,4 @@
-﻿using Application.Interfaces;
+﻿using Application.Interfaces.IProvincia;
 using Application.Request.Provincia;
 using Domain.Entities;
 using Infrastructure.Persistence;

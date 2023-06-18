@@ -1,5 +1,5 @@
 ﻿using Application.Exceptions;
-using Application.Interfaces;
+using Application.Interfaces.IProvincia;
 using Application.Request;
 using Application.Request.Provincia;
 using Application.Response.Provincia;

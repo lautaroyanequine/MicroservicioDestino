@@ -1,7 +1,7 @@
 ﻿using Application.Request.Provincia;
 using Domain.Entities;
 
-namespace Application.Interfaces
+namespace Application.Interfaces.IProvincia
 {
     public interface IProvinciaCommand
     {

@@ -1,4 +1,4 @@
-﻿using Application.Interfaces;
+﻿using Application.Interfaces.IViajeCiudad;
 using Application.Request.ViajeCiudad;
 using Domain.Entities;
 using Infrastructure.Persistence;

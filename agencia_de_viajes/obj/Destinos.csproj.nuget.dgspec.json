@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\solow\\Desktop\\Primer Cuatrimestre\\Proyecto de Software N°1\\Proyecto Grupal\\Microservio.Destino\\agencia_de_viajes\\Destinos.csproj": {}
+    "D:\\1_C_2023_UNI\\TP-GRUPAL\\Microservio.Destino\\agencia_de_viajes\\Destinos.csproj": {}
   },
   "projects": {
-    "C:\\Users\\solow\\Desktop\\Primer Cuatrimestre\\Proyecto de Software N°1\\Proyecto Grupal\\Microservio.Destino\\agencia_de_viajes\\Destinos.csproj": {
+    "D:\\1_C_2023_UNI\\TP-GRUPAL\\Microservio.Destino\\agencia_de_viajes\\Destinos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\solow\\Desktop\\Primer Cuatrimestre\\Proyecto de Software N°1\\Proyecto Grupal\\Microservio.Destino\\agencia_de_viajes\\Destinos.csproj",
+        "projectUniqueName": "D:\\1_C_2023_UNI\\TP-GRUPAL\\Microservio.Destino\\agencia_de_viajes\\Destinos.csproj",
         "projectName": "Destinos",
-        "projectPath": "C:\\Users\\solow\\Desktop\\Primer Cuatrimestre\\Proyecto de Software N°1\\Proyecto Grupal\\Microservio.Destino\\agencia_de_viajes\\Destinos.csproj",
-        "packagesPath": "C:\\Users\\solow\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\solow\\Desktop\\Primer Cuatrimestre\\Proyecto de Software N°1\\Proyecto Grupal\\Microservio.Destino\\agencia_de_viajes\\obj\\",
+        "projectPath": "D:\\1_C_2023_UNI\\TP-GRUPAL\\Microservio.Destino\\agencia_de_viajes\\Destinos.csproj",
+        "packagesPath": "C:\\Users\\Gaby\\.nuget\\packages\\",
+        "outputPath": "D:\\1_C_2023_UNI\\TP-GRUPAL\\Microservio.Destino\\agencia_de_viajes\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\solow\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Gaby\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,14 +22,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.304\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\solow\\Desktop\\Primer Cuatrimestre\\Proyecto de Software N°1\\Proyecto Grupal\\Microservio.Destino\\Infrastructure\\Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\solow\\Desktop\\Primer Cuatrimestre\\Proyecto de Software N°1\\Proyecto Grupal\\Microservio.Destino\\Infrastructure\\Infrastructure.csproj"
+              "D:\\1_C_2023_UNI\\TP-GRUPAL\\Microservio.Destino\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "D:\\1_C_2023_UNI\\TP-GRUPAL\\Microservio.Destino\\Infrastructure\\Infrastructure.csproj"
               }
             }
           }
@@ -86,21 +87,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\solow\\Desktop\\Primer Cuatrimestre\\Proyecto de Software N°1\\Proyecto Grupal\\Microservio.Destino\\Application\\Application.csproj": {
+    "D:\\1_C_2023_UNI\\TP-GRUPAL\\Microservio.Destino\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\solow\\Desktop\\Primer Cuatrimestre\\Proyecto de Software N°1\\Proyecto Grupal\\Microservio.Destino\\Application\\Application.csproj",
+        "projectUniqueName": "D:\\1_C_2023_UNI\\TP-GRUPAL\\Microservio.Destino\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\Users\\solow\\Desktop\\Primer Cuatrimestre\\Proyecto de Software N°1\\Proyecto Grupal\\Microservio.Destino\\Application\\Application.csproj",
-        "packagesPath": "C:\\Users\\solow\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\solow\\Desktop\\Primer Cuatrimestre\\Proyecto de Software N°1\\Proyecto Grupal\\Microservio.Destino\\Application\\obj\\",
+        "projectPath": "D:\\1_C_2023_UNI\\TP-GRUPAL\\Microservio.Destino\\Application\\Application.csproj",
+        "packagesPath": "C:\\Users\\Gaby\\.nuget\\packages\\",
+        "outputPath": "D:\\1_C_2023_UNI\\TP-GRUPAL\\Microservio.Destino\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\solow\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Gaby\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -114,8 +115,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\solow\\Desktop\\Primer Cuatrimestre\\Proyecto de Software N°1\\Proyecto Grupal\\Microservio.Destino\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\solow\\Desktop\\Primer Cuatrimestre\\Proyecto de Software N°1\\Proyecto Grupal\\Microservio.Destino\\Domain\\Domain.csproj"
+              "D:\\1_C_2023_UNI\\TP-GRUPAL\\Microservio.Destino\\Domain\\Domain.csproj": {
+                "projectPath": "D:\\1_C_2023_UNI\\TP-GRUPAL\\Microservio.Destino\\Domain\\Domain.csproj"
               }
             }
           }
@@ -163,21 +164,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\solow\\Desktop\\Primer Cuatrimestre\\Proyecto de Software N°1\\Proyecto Grupal\\Microservio.Destino\\Domain\\Domain.csproj": {
+    "D:\\1_C_2023_UNI\\TP-GRUPAL\\Microservio.Destino\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\solow\\Desktop\\Primer Cuatrimestre\\Proyecto de Software N°1\\Proyecto Grupal\\Microservio.Destino\\Domain\\Domain.csproj",
+        "projectUniqueName": "D:\\1_C_2023_UNI\\TP-GRUPAL\\Microservio.Destino\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\solow\\Desktop\\Primer Cuatrimestre\\Proyecto de Software N°1\\Proyecto Grupal\\Microservio.Destino\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\solow\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\solow\\Desktop\\Primer Cuatrimestre\\Proyecto de Software N°1\\Proyecto Grupal\\Microservio.Destino\\Domain\\obj\\",
+        "projectPath": "D:\\1_C_2023_UNI\\TP-GRUPAL\\Microservio.Destino\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\Gaby\\.nuget\\packages\\",
+        "outputPath": "D:\\1_C_2023_UNI\\TP-GRUPAL\\Microservio.Destino\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\solow\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Gaby\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -232,21 +233,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\solow\\Desktop\\Primer Cuatrimestre\\Proyecto de Software N°1\\Proyecto Grupal\\Microservio.Destino\\Infrastructure\\Infrastructure.csproj": {
+    "D:\\1_C_2023_UNI\\TP-GRUPAL\\Microservio.Destino\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\solow\\Desktop\\Primer Cuatrimestre\\Proyecto de Software N°1\\Proyecto Grupal\\Microservio.Destino\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "D:\\1_C_2023_UNI\\TP-GRUPAL\\Microservio.Destino\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "C:\\Users\\solow\\Desktop\\Primer Cuatrimestre\\Proyecto de Software N°1\\Proyecto Grupal\\Microservio.Destino\\Infrastructure\\Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\solow\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\solow\\Desktop\\Primer Cuatrimestre\\Proyecto de Software N°1\\Proyecto Grupal\\Microservio.Destino\\Infrastructure\\obj\\",
+        "projectPath": "D:\\1_C_2023_UNI\\TP-GRUPAL\\Microservio.Destino\\Infrastructure\\Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\Gaby\\.nuget\\packages\\",
+        "outputPath": "D:\\1_C_2023_UNI\\TP-GRUPAL\\Microservio.Destino\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\solow\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Gaby\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -260,8 +261,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\solow\\Desktop\\Primer Cuatrimestre\\Proyecto de Software N°1\\Proyecto Grupal\\Microservio.Destino\\Application\\Application.csproj": {
-                "projectPath": "C:\\Users\\solow\\Desktop\\Primer Cuatrimestre\\Proyecto de Software N°1\\Proyecto Grupal\\Microservio.Destino\\Application\\Application.csproj"
+              "D:\\1_C_2023_UNI\\TP-GRUPAL\\Microservio.Destino\\Application\\Application.csproj": {
+                "projectPath": "D:\\1_C_2023_UNI\\TP-GRUPAL\\Microservio.Destino\\Application\\Application.csproj"
               }
             }
           }
@@ -315,7 +316,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     }

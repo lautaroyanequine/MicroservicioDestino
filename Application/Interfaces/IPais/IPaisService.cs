@@ -1,7 +1,7 @@
 ﻿using Application.Request.Pais;
 using Application.Response.Pais;
 
-namespace Application.Interfaces
+namespace Application.Interfaces.IPais
 {
     public interface IPaisService
     {

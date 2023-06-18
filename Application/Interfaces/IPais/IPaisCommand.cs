@@ -1,7 +1,7 @@
 ﻿using Application.Request.Pais;
 using Domain.Entities;
 
-namespace Application.Interfaces
+namespace Application.Interfaces.IPais
 {
     public interface IPaisCommand
     {

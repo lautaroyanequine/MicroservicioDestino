@@ -171,6 +171,33 @@ namespace Infrastructure.Migrations
                         });
                 });
 
+            modelBuilder.Entity("Domain.Entities.InfoCiudad", b =>
+                {
+                    b.Property<int>("InfoCiudadId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("InfoCiudadId"));
+
+                    b.Property<int>("CiudadId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Descripcion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImagenUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("InfoCiudadId");
+
+                    b.HasIndex("CiudadId")
+                        .IsUnique();
+
+                    b.ToTable("InfoCiudad", (string)null);
+                });
+
             modelBuilder.Entity("Domain.Entities.Pais", b =>
                 {
                     b.Property<int>("PaisId")
@@ -290,6 +317,17 @@ namespace Infrastructure.Migrations
                     b.Navigation("Provincia");
                 });
 
+            modelBuilder.Entity("Domain.Entities.InfoCiudad", b =>
+                {
+                    b.HasOne("Domain.Entities.Ciudad", "Ciudad")
+                        .WithOne("infoCiudad")
+                        .HasForeignKey("Domain.Entities.InfoCiudad", "CiudadId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Ciudad");
+                });
+
             modelBuilder.Entity("Domain.Entities.Provincia", b =>
                 {
                     b.HasOne("Domain.Entities.Pais", "Pais")
@@ -315,6 +353,9 @@ namespace Infrastructure.Migrations
             modelBuilder.Entity("Domain.Entities.Ciudad", b =>
                 {
                     b.Navigation("ViajeCiudades");
+
+                    b.Navigation("infoCiudad")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Domain.Entities.Pais", b =>
