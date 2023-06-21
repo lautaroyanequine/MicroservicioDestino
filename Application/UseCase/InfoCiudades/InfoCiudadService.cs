@@ -105,5 +105,17 @@ namespace Application.UseCase.InfoCiudades
 
             return null;
         }
+
+        public InfoCiudadResponse GetPorCiudad(int ciudadId)
+        {
+            var infoCiudadFound = _query.GetByCiudad(ciudadId);
+
+            if(infoCiudadFound != null) 
+            { 
+                return GetById(infoCiudadFound.InfoCiudadId); 
+            };
+
+            return null;
+        }
     }
 }

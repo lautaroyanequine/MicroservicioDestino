@@ -9,6 +9,8 @@ namespace Application.Interfaces.IInfoCiudad
 
         InfoCiudadResponse EliminarInfoCiudad(int id);
 
+        InfoCiudadResponse GetPorCiudad(int ciudadId);
+
         InfoCiudadResponse EditarInfoCiudad(int id, InfoCiudadRequest request);
 
         List<InfoCiudadResponse> GetAllInfoCiudad();
