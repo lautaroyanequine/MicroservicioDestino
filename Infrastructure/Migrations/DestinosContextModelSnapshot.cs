@@ -1422,6 +1422,113 @@ namespace Infrastructure.Migrations
                     b.HasIndex("CiudadId");
 
                     b.ToTable("ViajeCiudades");
+
+                    b.HasData(
+                        new
+                        {
+                            ViajeCiudadId = 1,
+                            CiudadId = 1,
+                            Tipo = "Origen",
+                            ViajeId = 1
+                        },
+                        new
+                        {
+                            ViajeCiudadId = 2,
+                            CiudadId = 2,
+                            Tipo = "Escala",
+                            ViajeId = 1
+                        },
+                        new
+                        {
+                            ViajeCiudadId = 3,
+                            CiudadId = 3,
+                            Tipo = "Escala",
+                            ViajeId = 1
+                        },
+                        new
+                        {
+                            ViajeCiudadId = 4,
+                            CiudadId = 4,
+                            Tipo = "Escala",
+                            ViajeId = 1
+                        },
+                        new
+                        {
+                            ViajeCiudadId = 5,
+                            CiudadId = 5,
+                            Tipo = "Destino",
+                            ViajeId = 1
+                        },
+                        new
+                        {
+                            ViajeCiudadId = 6,
+                            CiudadId = 6,
+                            Tipo = "Origen",
+                            ViajeId = 2
+                        },
+                        new
+                        {
+                            ViajeCiudadId = 7,
+                            CiudadId = 7,
+                            Tipo = "Escala",
+                            ViajeId = 2
+                        },
+                        new
+                        {
+                            ViajeCiudadId = 8,
+                            CiudadId = 8,
+                            Tipo = "Escala",
+                            ViajeId = 2
+                        },
+                        new
+                        {
+                            ViajeCiudadId = 9,
+                            CiudadId = 9,
+                            Tipo = "Escala",
+                            ViajeId = 2
+                        },
+                        new
+                        {
+                            ViajeCiudadId = 10,
+                            CiudadId = 10,
+                            Tipo = "Destino",
+                            ViajeId = 2
+                        },
+                        new
+                        {
+                            ViajeCiudadId = 11,
+                            CiudadId = 11,
+                            Tipo = "Origen",
+                            ViajeId = 3
+                        },
+                        new
+                        {
+                            ViajeCiudadId = 12,
+                            CiudadId = 12,
+                            Tipo = "Escala",
+                            ViajeId = 3
+                        },
+                        new
+                        {
+                            ViajeCiudadId = 13,
+                            CiudadId = 13,
+                            Tipo = "Escala",
+                            ViajeId = 3
+                        },
+                        new
+                        {
+                            ViajeCiudadId = 14,
+                            CiudadId = 14,
+                            Tipo = "Escala",
+                            ViajeId = 3
+                        },
+                        new
+                        {
+                            ViajeCiudadId = 15,
+                            CiudadId = 15,
+                            Tipo = "Destino",
+                            ViajeId = 3
+                        });
                 });
 
             modelBuilder.Entity("Domain.Entities.Ciudad", b =>

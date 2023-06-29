@@ -560,3 +560,4 @@ E:\Proyectos\AgenciaDeViajes\Microservio.Destino\agencia_de_viajes\obj\Debug\net
 E:\Proyectos\AgenciaDeViajes\Microservio.Destino\agencia_de_viajes\obj\Debug\net6.0\Destinos.pdb
 E:\Proyectos\AgenciaDeViajes\Microservio.Destino\agencia_de_viajes\obj\Debug\net6.0\Destinos.genruntimeconfig.cache
 E:\Proyectos\AgenciaDeViajes\Microservio.Destino\agencia_de_viajes\obj\Debug\net6.0\ref\Destinos.dll
+C:\Users\solow\Desktop\Primer Cuatrimestre\Proyecto de Software N°1\Proyecto Grupal\Microservio.Destino\agencia_de_viajes\bin\Debug\net6.0\appsettings.json

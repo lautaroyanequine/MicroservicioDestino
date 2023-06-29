@@ -7,7 +7,7 @@
 namespace Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class pregargaData : Migration
+    public partial class init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -333,6 +333,28 @@ namespace Infrastructure.Migrations
                     { 83, 83, "La Ciudad de México, también conocida como CDMX, es la capital de México y una de las ciudades más grandes y vibrantes de América Latina. Con una rica historia, una mezcla de culturas y una amplia gama de atracciones, la Ciudad de México ofrece una experiencia única para los visitantes.\r\n\r\nLa ciudad es famosa por su impresionante arquitectura colonial y su mezcla de estilos arquitectónicos. El centro histórico de la ciudad, conocido como el Zócalo, es uno de los lugares más emblemáticos, con la Catedral Metropolitana y el Palacio Nacional como principales puntos de interés. También puedes visitar el Templo Mayor, un sitio arqueológico que fue el centro religioso y político de la antigua ciudad azteca de Tenochtitlán.\r\n\r\nLa Ciudad de México es también un destino culturalmente rico. Cuenta con una amplia oferta de museos, incluyendo el famoso Museo Nacional de Antropología, que alberga una impresionante colección de artefactos prehispánicos, y el Museo Frida Kahlo, dedicado a la famosa pintora mexicana. Además, la ciudad cuenta con una animada escena artística, con galerías de arte, teatros y espacios culturales que ofrecen una amplia variedad de eventos y exposiciones.\r\n\r\nLa gastronomía de la Ciudad de México es reconocida a nivel mundial. Los visitantes pueden disfrutar de una gran variedad de platillos mexicanos, desde tacos y tamales hasta chiles en nogada y mole. La ciudad también cuenta con una gran cantidad de mercados y restaurantes que ofrecen una amplia gama de opciones culinarias, desde puestos callejeros hasta restaurantes gourmet.\r\n\r\nAdemás, la Ciudad de México ofrece una gran cantidad de parques y espacios verdes donde los visitantes pueden relajarse y disfrutar de la naturaleza. El Bosque de Chapultepec, uno de los parques urbanos más grandes del mundo, es un lugar popular para hacer caminatas, visitar museos y disfrutar de actividades al aire libre. También puedes visitar Xochimilco, conocido por sus coloridos canales y tradicionales trajineras, donde puedes disfrutar de un paseo en bote mientras te deleitas con música y comida típica.", "https://elviajista.com/wp-content/uploads/2019/05/dondealojarseenciudaddemexico.jpg" },
                     { 84, 84, "Ecatepec de Morelos, comúnmente conocido como Ecatepec, es uno de los municipios más poblados de México y forma parte del área metropolitana de la Ciudad de México. Se encuentra en el estado de México, al noreste de la capital.\r\n\r\nEcatepec es conocido por su historia, cultura y tradiciones arraigadas. Cuenta con diversos sitios arqueológicos y culturales que reflejan su pasado prehispánico, como el Cerro de Ecatepec y la Zona Arqueológica de Santa Cecilia Acatitlán. Estos sitios brindan una visión fascinante de la vida y las civilizaciones antiguas que habitaron la región.\r\n\r\nAdemás de su patrimonio histórico, Ecatepec cuenta con una gran oferta cultural. La ciudad alberga numerosos museos, teatros y espacios culturales donde se celebran eventos, exposiciones y espectáculos. También es conocido por sus festividades tradicionales, como la Feria de San Cristóbal y la Fiesta de la Santa Cruz, donde se pueden disfrutar de música, danzas y platillos típicos.\r\n\r\nEn cuanto a su infraestructura, Ecatepec cuenta con una amplia gama de servicios y comodidades para sus residentes y visitantes. Hay centros comerciales, parques, espacios recreativos y una gran variedad de opciones gastronómicas que incluyen desde puestos callejeros hasta restaurantes de renombre.\r\n\r\nEs importante mencionar que Ecatepec también enfrenta desafíos socioeconómicos y urbanísticos. Como uno de los municipios más grandes y densamente poblados de México, enfrenta retos en términos de infraestructura, seguridad y calidad de vida. Sin embargo, las autoridades y la comunidad trabajan constantemente para mejorar estas condiciones y promover un desarrollo sostenible.", "https://ccie.com.mx/wp-content/uploads/2019/03/ecatepec-el-municipio-mas-contaminado-esta-manana.jpg" },
                     { 85, 85, "Naucalpan de Juárez, comúnmente conocido como Naucalpan, es un municipio ubicado en el Estado de México, en la zona metropolitana de la Ciudad de México. Es uno de los municipios más poblados y desarrollados de la región.\r\n\r\nNaucalpan tiene una rica historia que se remonta a la época prehispánica, cuando era habitado por grupos indígenas como los otomíes y los mazahuas. Actualmente, conserva vestigios arqueológicos como los templos de San Andrés y San Francisco, que son testigos de su pasado colonial.\r\n\r\nLa ciudad cuenta con una amplia oferta de servicios y comodidades para sus residentes y visitantes. Tiene una infraestructura urbana bien desarrollada, con centros comerciales, restaurantes, parques y espacios recreativos. Destaca el Parque Naucalli, un gran espacio verde que alberga áreas para caminar, hacer ejercicio, así como un teatro al aire libre y un lago.\r\n\r\nNaucalpan también es conocido por su oferta educativa, ya que cuenta con diversas instituciones educativas de prestigio, tanto a nivel básico como superior. Además, la ciudad se ha convertido en un importante centro económico y comercial, con zonas industriales y parques empresariales que atraen inversiones y generan empleo.\r\n\r\nEn cuanto a la cultura, Naucalpan cuenta con espacios culturales como el Centro Cultural Naucalli, que alberga exposiciones, eventos artísticos y actividades culturales. Además, la ciudad celebra diversas festividades y tradiciones a lo largo del año, como la Feria del Elote y el Día de Muertos, donde se pueden apreciar la riqueza cultural y las tradiciones de la región.\r\n\r\nNo obstante, al igual que otras áreas metropolitanas, Naucalpan también enfrenta desafíos relacionados con la seguridad, la movilidad y el desarrollo urbano. Las autoridades y la comunidad trabajan en conjunto para abordar estos desafíos y mejorar la calidad de vida de sus habitantes.", "https://i0.wp.com/upload.wikimedia.org/wikipedia/commons/thumb/9/98/Santo_Domingo_de_Guzman_Convent.JPG/640px-Santo_Domingo_de_Guzman_Convent.jpg" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "ViajeCiudades",
+                columns: new[] { "ViajeCiudadId", "CiudadId", "Tipo", "ViajeId" },
+                values: new object[,]
+                {
+                    { 1, 1, "Origen", 1 },
+                    { 2, 2, "Escala", 1 },
+                    { 3, 3, "Escala", 1 },
+                    { 4, 4, "Escala", 1 },
+                    { 5, 5, "Destino", 1 },
+                    { 6, 6, "Origen", 2 },
+                    { 7, 7, "Escala", 2 },
+                    { 8, 8, "Escala", 2 },
+                    { 9, 9, "Escala", 2 },
+                    { 10, 10, "Destino", 2 },
+                    { 11, 11, "Origen", 3 },
+                    { 12, 12, "Escala", 3 },
+                    { 13, 13, "Escala", 3 },
+                    { 14, 14, "Escala", 3 },
+                    { 15, 15, "Destino", 3 }
                 });
 
             migrationBuilder.CreateIndex(

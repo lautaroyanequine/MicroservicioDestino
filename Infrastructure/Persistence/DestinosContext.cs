@@ -31,6 +31,9 @@ namespace Infrastructure.Persistence
 
             modelBuilder.ApplyConfiguration(new InfoCiudadConfiguration());
             modelBuilder.ApplyConfiguration(new InfoCiudadData());
+
+            modelBuilder.ApplyConfiguration(new ViajeCiudadData());
+
         }
     }
 
