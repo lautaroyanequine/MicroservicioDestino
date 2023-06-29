@@ -7,7 +7,7 @@
 namespace Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class init : Migration
+    public partial class precargaData : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -354,7 +354,37 @@ namespace Infrastructure.Migrations
                     { 12, 12, "Escala", 3 },
                     { 13, 13, "Escala", 3 },
                     { 14, 14, "Escala", 3 },
-                    { 15, 15, "Destino", 3 }
+                    { 15, 15, "Destino", 3 },
+                    { 16, 21, "Origen", 4 },
+                    { 17, 26, "Destino", 4 },
+                    { 18, 21, "Origen", 5 },
+                    { 19, 23, "Destino", 5 },
+                    { 20, 21, "Origen", 6 },
+                    { 21, 19, "Destino", 6 },
+                    { 22, 21, "Origen", 7 },
+                    { 23, 24, "Destino", 7 },
+                    { 24, 21, "Origen", 8 },
+                    { 25, 10, "Destino", 8 },
+                    { 26, 21, "Origen", 9 },
+                    { 27, 10, "Destino", 9 },
+                    { 28, 21, "Origen", 10 },
+                    { 29, 10, "Destino", 10 },
+                    { 30, 21, "Origen", 11 },
+                    { 31, 10, "Destino", 11 },
+                    { 32, 21, "Origen", 12 },
+                    { 33, 6, "Destino", 12 },
+                    { 34, 21, "Origen", 13 },
+                    { 35, 6, "Destino", 13 },
+                    { 36, 21, "Origen", 14 },
+                    { 37, 6, "Destino", 14 },
+                    { 38, 21, "Origen", 15 },
+                    { 39, 6, "Destino", 15 },
+                    { 40, 21, "Origen", 16 },
+                    { 41, 1, "Destino", 16 },
+                    { 42, 21, "Origen", 17 },
+                    { 43, 3, "Destino", 17 },
+                    { 44, 21, "Origen", 18 },
+                    { 45, 3, "Destino", 18 }
                 });
 
             migrationBuilder.CreateIndex(

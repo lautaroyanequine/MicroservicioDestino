@@ -1528,6 +1528,216 @@ namespace Infrastructure.Migrations
                             CiudadId = 15,
                             Tipo = "Destino",
                             ViajeId = 3
+                        },
+                        new
+                        {
+                            ViajeCiudadId = 16,
+                            CiudadId = 21,
+                            Tipo = "Origen",
+                            ViajeId = 4
+                        },
+                        new
+                        {
+                            ViajeCiudadId = 17,
+                            CiudadId = 26,
+                            Tipo = "Destino",
+                            ViajeId = 4
+                        },
+                        new
+                        {
+                            ViajeCiudadId = 18,
+                            CiudadId = 21,
+                            Tipo = "Origen",
+                            ViajeId = 5
+                        },
+                        new
+                        {
+                            ViajeCiudadId = 19,
+                            CiudadId = 23,
+                            Tipo = "Destino",
+                            ViajeId = 5
+                        },
+                        new
+                        {
+                            ViajeCiudadId = 20,
+                            CiudadId = 21,
+                            Tipo = "Origen",
+                            ViajeId = 6
+                        },
+                        new
+                        {
+                            ViajeCiudadId = 21,
+                            CiudadId = 19,
+                            Tipo = "Destino",
+                            ViajeId = 6
+                        },
+                        new
+                        {
+                            ViajeCiudadId = 22,
+                            CiudadId = 21,
+                            Tipo = "Origen",
+                            ViajeId = 7
+                        },
+                        new
+                        {
+                            ViajeCiudadId = 23,
+                            CiudadId = 24,
+                            Tipo = "Destino",
+                            ViajeId = 7
+                        },
+                        new
+                        {
+                            ViajeCiudadId = 24,
+                            CiudadId = 21,
+                            Tipo = "Origen",
+                            ViajeId = 8
+                        },
+                        new
+                        {
+                            ViajeCiudadId = 25,
+                            CiudadId = 10,
+                            Tipo = "Destino",
+                            ViajeId = 8
+                        },
+                        new
+                        {
+                            ViajeCiudadId = 26,
+                            CiudadId = 21,
+                            Tipo = "Origen",
+                            ViajeId = 9
+                        },
+                        new
+                        {
+                            ViajeCiudadId = 27,
+                            CiudadId = 10,
+                            Tipo = "Destino",
+                            ViajeId = 9
+                        },
+                        new
+                        {
+                            ViajeCiudadId = 28,
+                            CiudadId = 21,
+                            Tipo = "Origen",
+                            ViajeId = 10
+                        },
+                        new
+                        {
+                            ViajeCiudadId = 29,
+                            CiudadId = 10,
+                            Tipo = "Destino",
+                            ViajeId = 10
+                        },
+                        new
+                        {
+                            ViajeCiudadId = 30,
+                            CiudadId = 21,
+                            Tipo = "Origen",
+                            ViajeId = 11
+                        },
+                        new
+                        {
+                            ViajeCiudadId = 31,
+                            CiudadId = 10,
+                            Tipo = "Destino",
+                            ViajeId = 11
+                        },
+                        new
+                        {
+                            ViajeCiudadId = 32,
+                            CiudadId = 21,
+                            Tipo = "Origen",
+                            ViajeId = 12
+                        },
+                        new
+                        {
+                            ViajeCiudadId = 33,
+                            CiudadId = 6,
+                            Tipo = "Destino",
+                            ViajeId = 12
+                        },
+                        new
+                        {
+                            ViajeCiudadId = 34,
+                            CiudadId = 21,
+                            Tipo = "Origen",
+                            ViajeId = 13
+                        },
+                        new
+                        {
+                            ViajeCiudadId = 35,
+                            CiudadId = 6,
+                            Tipo = "Destino",
+                            ViajeId = 13
+                        },
+                        new
+                        {
+                            ViajeCiudadId = 36,
+                            CiudadId = 21,
+                            Tipo = "Origen",
+                            ViajeId = 14
+                        },
+                        new
+                        {
+                            ViajeCiudadId = 37,
+                            CiudadId = 6,
+                            Tipo = "Destino",
+                            ViajeId = 14
+                        },
+                        new
+                        {
+                            ViajeCiudadId = 38,
+                            CiudadId = 21,
+                            Tipo = "Origen",
+                            ViajeId = 15
+                        },
+                        new
+                        {
+                            ViajeCiudadId = 39,
+                            CiudadId = 6,
+                            Tipo = "Destino",
+                            ViajeId = 15
+                        },
+                        new
+                        {
+                            ViajeCiudadId = 40,
+                            CiudadId = 21,
+                            Tipo = "Origen",
+                            ViajeId = 16
+                        },
+                        new
+                        {
+                            ViajeCiudadId = 41,
+                            CiudadId = 1,
+                            Tipo = "Destino",
+                            ViajeId = 16
+                        },
+                        new
+                        {
+                            ViajeCiudadId = 42,
+                            CiudadId = 21,
+                            Tipo = "Origen",
+                            ViajeId = 17
+                        },
+                        new
+                        {
+                            ViajeCiudadId = 43,
+                            CiudadId = 3,
+                            Tipo = "Destino",
+                            ViajeId = 17
+                        },
+                        new
+                        {
+                            ViajeCiudadId = 44,
+                            CiudadId = 21,
+                            Tipo = "Origen",
+                            ViajeId = 18
+                        },
+                        new
+                        {
+                            ViajeCiudadId = 45,
+                            CiudadId = 3,
+                            Tipo = "Destino",
+                            ViajeId = 18
                         });
                 });
 
