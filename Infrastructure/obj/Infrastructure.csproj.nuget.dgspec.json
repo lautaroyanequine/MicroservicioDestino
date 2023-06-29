@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\1_C_2023_UNI\\TP-GRUPAL\\Microservio.Destino\\Infrastructure\\Infrastructure.csproj": {}
+    "E:\\Proyectos\\AgenciaDeViajes\\Microservio.Destino\\Infrastructure\\Infrastructure.csproj": {}
   },
   "projects": {
-    "D:\\1_C_2023_UNI\\TP-GRUPAL\\Microservio.Destino\\Application\\Application.csproj": {
+    "E:\\Proyectos\\AgenciaDeViajes\\Microservio.Destino\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\1_C_2023_UNI\\TP-GRUPAL\\Microservio.Destino\\Application\\Application.csproj",
+        "projectUniqueName": "E:\\Proyectos\\AgenciaDeViajes\\Microservio.Destino\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "D:\\1_C_2023_UNI\\TP-GRUPAL\\Microservio.Destino\\Application\\Application.csproj",
-        "packagesPath": "C:\\Users\\Gaby\\.nuget\\packages\\",
-        "outputPath": "D:\\1_C_2023_UNI\\TP-GRUPAL\\Microservio.Destino\\Application\\obj\\",
+        "projectPath": "E:\\Proyectos\\AgenciaDeViajes\\Microservio.Destino\\Application\\Application.csproj",
+        "packagesPath": "C:\\Users\\W10-PC\\.nuget\\packages\\",
+        "outputPath": "E:\\Proyectos\\AgenciaDeViajes\\Microservio.Destino\\Application\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Gaby\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\W10-PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,14 +26,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://www.nuget.org/api/v2/": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\1_C_2023_UNI\\TP-GRUPAL\\Microservio.Destino\\Domain\\Domain.csproj": {
-                "projectPath": "D:\\1_C_2023_UNI\\TP-GRUPAL\\Microservio.Destino\\Domain\\Domain.csproj"
+              "E:\\Proyectos\\AgenciaDeViajes\\Microservio.Destino\\Domain\\Domain.csproj": {
+                "projectPath": "E:\\Proyectos\\AgenciaDeViajes\\Microservio.Destino\\Domain\\Domain.csproj"
               }
             }
           }
@@ -67,8 +71,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -77,21 +80,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\1_C_2023_UNI\\TP-GRUPAL\\Microservio.Destino\\Domain\\Domain.csproj": {
+    "E:\\Proyectos\\AgenciaDeViajes\\Microservio.Destino\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\1_C_2023_UNI\\TP-GRUPAL\\Microservio.Destino\\Domain\\Domain.csproj",
+        "projectUniqueName": "E:\\Proyectos\\AgenciaDeViajes\\Microservio.Destino\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "D:\\1_C_2023_UNI\\TP-GRUPAL\\Microservio.Destino\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\Gaby\\.nuget\\packages\\",
-        "outputPath": "D:\\1_C_2023_UNI\\TP-GRUPAL\\Microservio.Destino\\Domain\\obj\\",
+        "projectPath": "E:\\Proyectos\\AgenciaDeViajes\\Microservio.Destino\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\W10-PC\\.nuget\\packages\\",
+        "outputPath": "E:\\Proyectos\\AgenciaDeViajes\\Microservio.Destino\\Domain\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Gaby\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\W10-PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -99,7 +106,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://www.nuget.org/api/v2/": {}
         },
         "frameworks": {
           "net6.0": {
@@ -136,8 +143,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -146,21 +152,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\1_C_2023_UNI\\TP-GRUPAL\\Microservio.Destino\\Infrastructure\\Infrastructure.csproj": {
+    "E:\\Proyectos\\AgenciaDeViajes\\Microservio.Destino\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\1_C_2023_UNI\\TP-GRUPAL\\Microservio.Destino\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "E:\\Proyectos\\AgenciaDeViajes\\Microservio.Destino\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "D:\\1_C_2023_UNI\\TP-GRUPAL\\Microservio.Destino\\Infrastructure\\Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\Gaby\\.nuget\\packages\\",
-        "outputPath": "D:\\1_C_2023_UNI\\TP-GRUPAL\\Microservio.Destino\\Infrastructure\\obj\\",
+        "projectPath": "E:\\Proyectos\\AgenciaDeViajes\\Microservio.Destino\\Infrastructure\\Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\W10-PC\\.nuget\\packages\\",
+        "outputPath": "E:\\Proyectos\\AgenciaDeViajes\\Microservio.Destino\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Gaby\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\W10-PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -168,14 +178,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://www.nuget.org/api/v2/": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\1_C_2023_UNI\\TP-GRUPAL\\Microservio.Destino\\Application\\Application.csproj": {
-                "projectPath": "D:\\1_C_2023_UNI\\TP-GRUPAL\\Microservio.Destino\\Application\\Application.csproj"
+              "E:\\Proyectos\\AgenciaDeViajes\\Microservio.Destino\\Application\\Application.csproj": {
+                "projectPath": "E:\\Proyectos\\AgenciaDeViajes\\Microservio.Destino\\Application\\Application.csproj"
               }
             }
           }
@@ -219,8 +229,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -229,7 +238,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

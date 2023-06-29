@@ -222,3 +222,22 @@ C:\Users\solow\Desktop\Primer Cuatrimestre\Proyecto de Software N°1\Proyecto Gr
 C:\Users\solow\Desktop\Primer Cuatrimestre\Proyecto de Software N°1\Proyecto Grupal\Microservio.Destino\Infrastructure\obj\Debug\net6.0\Infrastructure.pdb
 C:\Users\solow\Desktop\Primer Cuatrimestre\Proyecto de Software N°1\Proyecto Grupal\Microservio.Destino\Infrastructure\obj\Debug\net6.0\Infrastructure.genruntimeconfig.cache
 C:\Users\solow\Desktop\Primer Cuatrimestre\Proyecto de Software N°1\Proyecto Grupal\Microservio.Destino\Infrastructure\obj\Debug\net6.0\ref\Infrastructure.dll
+E:\Proyectos\AgenciaDeViajes\Microservio.Destino\Infrastructure\bin\Debug\net6.0\Infrastructure.deps.json
+E:\Proyectos\AgenciaDeViajes\Microservio.Destino\Infrastructure\bin\Debug\net6.0\Infrastructure.runtimeconfig.json
+E:\Proyectos\AgenciaDeViajes\Microservio.Destino\Infrastructure\bin\Debug\net6.0\Infrastructure.dll
+E:\Proyectos\AgenciaDeViajes\Microservio.Destino\Infrastructure\bin\Debug\net6.0\Infrastructure.pdb
+E:\Proyectos\AgenciaDeViajes\Microservio.Destino\Infrastructure\bin\Debug\net6.0\Application.dll
+E:\Proyectos\AgenciaDeViajes\Microservio.Destino\Infrastructure\bin\Debug\net6.0\Domain.dll
+E:\Proyectos\AgenciaDeViajes\Microservio.Destino\Infrastructure\bin\Debug\net6.0\Application.pdb
+E:\Proyectos\AgenciaDeViajes\Microservio.Destino\Infrastructure\bin\Debug\net6.0\Domain.pdb
+E:\Proyectos\AgenciaDeViajes\Microservio.Destino\Infrastructure\obj\Debug\net6.0\Infrastructure.csproj.AssemblyReference.cache
+E:\Proyectos\AgenciaDeViajes\Microservio.Destino\Infrastructure\obj\Debug\net6.0\Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+E:\Proyectos\AgenciaDeViajes\Microservio.Destino\Infrastructure\obj\Debug\net6.0\Infrastructure.AssemblyInfoInputs.cache
+E:\Proyectos\AgenciaDeViajes\Microservio.Destino\Infrastructure\obj\Debug\net6.0\Infrastructure.AssemblyInfo.cs
+E:\Proyectos\AgenciaDeViajes\Microservio.Destino\Infrastructure\obj\Debug\net6.0\Infrastructure.csproj.CoreCompileInputs.cache
+E:\Proyectos\AgenciaDeViajes\Microservio.Destino\Infrastructure\obj\Debug\net6.0\Infrastructure.csproj.CopyComplete
+E:\Proyectos\AgenciaDeViajes\Microservio.Destino\Infrastructure\obj\Debug\net6.0\Infrastructure.dll
+E:\Proyectos\AgenciaDeViajes\Microservio.Destino\Infrastructure\obj\Debug\net6.0\refint\Infrastructure.dll
+E:\Proyectos\AgenciaDeViajes\Microservio.Destino\Infrastructure\obj\Debug\net6.0\Infrastructure.pdb
+E:\Proyectos\AgenciaDeViajes\Microservio.Destino\Infrastructure\obj\Debug\net6.0\Infrastructure.genruntimeconfig.cache
+E:\Proyectos\AgenciaDeViajes\Microservio.Destino\Infrastructure\obj\Debug\net6.0\ref\Infrastructure.dll
