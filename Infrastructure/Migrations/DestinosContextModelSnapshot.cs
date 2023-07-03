@@ -2320,21 +2320,21 @@ namespace Infrastructure.Migrations
                         new
                         {
                             ViajeCiudadId = 6,
-                            CiudadId = 118,
+                            CiudadId = 119,
                             Tipo = "Escala",
                             ViajeId = 3
                         },
                         new
                         {
                             ViajeCiudadId = 7,
-                            CiudadId = 144,
+                            CiudadId = 145,
                             Tipo = "Escala",
                             ViajeId = 3
                         },
                         new
                         {
                             ViajeCiudadId = 8,
-                            CiudadId = 120,
+                            CiudadId = 121,
                             Tipo = "Destino",
                             ViajeId = 3
                         },
@@ -2348,21 +2348,21 @@ namespace Infrastructure.Migrations
                         new
                         {
                             ViajeCiudadId = 10,
-                            CiudadId = 120,
+                            CiudadId = 121,
                             Tipo = "Escala",
                             ViajeId = 4
                         },
                         new
                         {
                             ViajeCiudadId = 11,
-                            CiudadId = 132,
+                            CiudadId = 133,
                             Tipo = "Escala",
                             ViajeId = 4
                         },
                         new
                         {
                             ViajeCiudadId = 12,
-                            CiudadId = 129,
+                            CiudadId = 130,
                             Tipo = "Destino",
                             ViajeId = 4
                         },
@@ -2481,14 +2481,14 @@ namespace Infrastructure.Migrations
                         new
                         {
                             ViajeCiudadId = 29,
-                            CiudadId = 119,
+                            CiudadId = 120,
                             Tipo = "Escala",
                             ViajeId = 12
                         },
                         new
                         {
                             ViajeCiudadId = 30,
-                            CiudadId = 118,
+                            CiudadId = 119,
                             Tipo = "Destino",
                             ViajeId = 12
                         },
@@ -2509,7 +2509,7 @@ namespace Infrastructure.Migrations
                         new
                         {
                             ViajeCiudadId = 33,
-                            CiudadId = 117,
+                            CiudadId = 118,
                             Tipo = "Destino",
                             ViajeId = 13
                         },
@@ -2530,14 +2530,14 @@ namespace Infrastructure.Migrations
                         new
                         {
                             ViajeCiudadId = 36,
-                            CiudadId = 115,
+                            CiudadId = 116,
                             Tipo = "Escala",
                             ViajeId = 14
                         },
                         new
                         {
                             ViajeCiudadId = 37,
-                            CiudadId = 150,
+                            CiudadId = 151,
                             Tipo = "Destino",
                             ViajeId = 14
                         },
@@ -2614,7 +2614,7 @@ namespace Infrastructure.Migrations
                         new
                         {
                             ViajeCiudadId = 48,
-                            CiudadId = 123,
+                            CiudadId = 124,
                             Tipo = "Destino",
                             ViajeId = 19
                         },
@@ -2670,42 +2670,42 @@ namespace Infrastructure.Migrations
                         new
                         {
                             ViajeCiudadId = 56,
-                            CiudadId = 120,
+                            CiudadId = 121,
                             Tipo = "Escala",
                             ViajeId = 23
                         },
                         new
                         {
                             ViajeCiudadId = 57,
-                            CiudadId = 126,
+                            CiudadId = 127,
                             Tipo = "Destino",
                             ViajeId = 23
                         },
                         new
                         {
                             ViajeCiudadId = 58,
-                            CiudadId = 121,
+                            CiudadId = 122,
                             Tipo = "Origen",
                             ViajeId = 25
                         },
                         new
                         {
                             ViajeCiudadId = 59,
-                            CiudadId = 147,
+                            CiudadId = 148,
                             Tipo = "Destino",
                             ViajeId = 25
                         },
                         new
                         {
                             ViajeCiudadId = 60,
-                            CiudadId = 132,
+                            CiudadId = 133,
                             Tipo = "Origen",
                             ViajeId = 26
                         },
                         new
                         {
                             ViajeCiudadId = 61,
-                            CiudadId = 144,
+                            CiudadId = 145,
                             Tipo = "Escala",
                             ViajeId = 26
                         },
@@ -2747,14 +2747,14 @@ namespace Infrastructure.Migrations
                         new
                         {
                             ViajeCiudadId = 67,
-                            CiudadId = 150,
+                            CiudadId = 151,
                             Tipo = "Escala",
                             ViajeId = 27
                         },
                         new
                         {
                             ViajeCiudadId = 68,
-                            CiudadId = 144,
+                            CiudadId = 145,
                             Tipo = "Destino",
                             ViajeId = 27
                         },
@@ -2775,14 +2775,14 @@ namespace Infrastructure.Migrations
                         new
                         {
                             ViajeCiudadId = 71,
-                            CiudadId = 151,
+                            CiudadId = 152,
                             Tipo = "Escala",
                             ViajeId = 28
                         },
                         new
                         {
                             ViajeCiudadId = 72,
-                            CiudadId = 145,
+                            CiudadId = 146,
                             Tipo = "Destino",
                             ViajeId = 28
                         },

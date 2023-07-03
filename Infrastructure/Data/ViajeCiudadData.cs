@@ -59,7 +59,7 @@ namespace Infrastructure.Data
                 {
                     ViajeCiudadId = 6,
                     ViajeId = 3,
-                    CiudadId = 118,
+                    CiudadId = 119,
                     Tipo = "Escala"
                 },
 
@@ -67,7 +67,7 @@ namespace Infrastructure.Data
                 {
                     ViajeCiudadId = 7,
                     ViajeId = 3,
-                    CiudadId = 144,
+                    CiudadId = 145,
                     Tipo = "Escala"
                 },
 
@@ -75,7 +75,7 @@ namespace Infrastructure.Data
                 {
                     ViajeCiudadId = 8,
                     ViajeId = 3,
-                    CiudadId = 120,
+                    CiudadId = 121,
                     Tipo = "Destino"
                 },
 
@@ -91,7 +91,7 @@ namespace Infrastructure.Data
                 {
                     ViajeCiudadId = 10,
                     ViajeId = 4,
-                    CiudadId = 120,
+                    CiudadId = 121,
                     Tipo = "Escala"
                 },
 
@@ -99,7 +99,7 @@ namespace Infrastructure.Data
                 {
                     ViajeCiudadId = 11,
                     ViajeId = 4,
-                    CiudadId = 132,
+                    CiudadId = 133,
                     Tipo = "Escala"
                 },
 
@@ -107,7 +107,7 @@ namespace Infrastructure.Data
                 {
                     ViajeCiudadId = 12,
                     ViajeId = 4,
-                    CiudadId = 129,
+                    CiudadId = 130,
                     Tipo = "Destino"
                 },
 
@@ -239,7 +239,7 @@ namespace Infrastructure.Data
                 {
                     ViajeCiudadId = 29,
                     ViajeId = 12,
-                    CiudadId = 119,
+                    CiudadId = 120,
                     Tipo = "Escala"
                 },
 
@@ -247,7 +247,7 @@ namespace Infrastructure.Data
                 {
                     ViajeCiudadId = 30,
                     ViajeId = 12,
-                    CiudadId = 118,
+                    CiudadId = 119,
                     Tipo = "Destino"
                 },
 
@@ -271,7 +271,7 @@ namespace Infrastructure.Data
                 {
                     ViajeCiudadId = 33,
                     ViajeId = 13,
-                    CiudadId = 117,
+                    CiudadId = 118,
                     Tipo = "Destino"
                 },
 
@@ -295,7 +295,7 @@ namespace Infrastructure.Data
                 {
                     ViajeCiudadId = 36,
                     ViajeId = 14,
-                    CiudadId = 115,
+                    CiudadId = 116,
                     Tipo = "Escala"
                 },
 
@@ -303,7 +303,7 @@ namespace Infrastructure.Data
                 {
                     ViajeCiudadId = 37,
                     ViajeId = 14,
-                    CiudadId = 150,
+                    CiudadId = 151,
                     Tipo = "Destino"
                 },
                 //----------------------------------------------
@@ -391,7 +391,7 @@ namespace Infrastructure.Data
                 {
                     ViajeCiudadId = 48,
                     ViajeId = 19,
-                    CiudadId = 123,
+                    CiudadId = 124,
                     Tipo = "Destino"
                 },
 
@@ -456,7 +456,7 @@ namespace Infrastructure.Data
                 {
                     ViajeCiudadId = 56,
                     ViajeId = 23,
-                    CiudadId = 120,
+                    CiudadId = 121,
                     Tipo = "Escala"
                 },
                 //----------------------------------------------
@@ -464,7 +464,7 @@ namespace Infrastructure.Data
                 {
                     ViajeCiudadId = 57,
                     ViajeId = 23,
-                    CiudadId = 126,
+                    CiudadId = 127,
                     Tipo = "Destino"
                 },
 
@@ -472,7 +472,7 @@ namespace Infrastructure.Data
                 {
                     ViajeCiudadId = 58,
                     ViajeId = 25,
-                    CiudadId = 121,
+                    CiudadId = 122,
                     Tipo = "Origen"
                 },
 
@@ -480,7 +480,7 @@ namespace Infrastructure.Data
                 {
                     ViajeCiudadId = 59,
                     ViajeId = 25,
-                    CiudadId = 147,
+                    CiudadId = 148,
                     Tipo = "Destino"
                 },
 
@@ -488,7 +488,7 @@ namespace Infrastructure.Data
                 {
                     ViajeCiudadId = 60,
                     ViajeId = 26,
-                    CiudadId = 132,
+                    CiudadId = 133,
                     Tipo = "Origen"
                 },
 
@@ -496,7 +496,7 @@ namespace Infrastructure.Data
                 {
                     ViajeCiudadId = 61,
                     ViajeId = 26,
-                    CiudadId = 144,
+                    CiudadId = 145,
                     Tipo = "Escala"
                 },
 
@@ -544,7 +544,7 @@ namespace Infrastructure.Data
                 {
                     ViajeCiudadId = 67,
                     ViajeId = 27,
-                    CiudadId = 150,
+                    CiudadId = 151,
                     Tipo = "Escala"
                 },
 
@@ -552,7 +552,7 @@ namespace Infrastructure.Data
                 {
                     ViajeCiudadId = 68,
                     ViajeId = 27,
-                    CiudadId = 144,
+                    CiudadId = 145,
                     Tipo = "Destino"
                 },
 
@@ -576,7 +576,7 @@ namespace Infrastructure.Data
                 {
                     ViajeCiudadId = 71,
                     ViajeId = 28,
-                    CiudadId = 151,
+                    CiudadId = 152,
                     Tipo = "Escala"
                 },
                 //----------------------------------------------
@@ -584,7 +584,7 @@ namespace Infrastructure.Data
                 {
                     ViajeCiudadId = 72,
                     ViajeId = 28,
-                    CiudadId = 145,
+                    CiudadId = 146,
                     Tipo = "Destino"
                 },
 
