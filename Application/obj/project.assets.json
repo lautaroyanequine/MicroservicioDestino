@@ -4890,19 +4890,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\lauta\\.nuget\\packages\\": {}
+    "C:\\Users\\Nicolás Silva\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lauta\\source\\repos\\Agencia de Viajes-Back\\Microservio.Destino\\Application\\Application.csproj",
+      "projectUniqueName": "C:\\Users\\Nicolás Silva\\Desktop\\Nueva carpeta\\Microservio.Destino\\Application\\Application.csproj",
       "projectName": "Application",
-      "projectPath": "C:\\Users\\lauta\\source\\repos\\Agencia de Viajes-Back\\Microservio.Destino\\Application\\Application.csproj",
-      "packagesPath": "C:\\Users\\lauta\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lauta\\source\\repos\\Agencia de Viajes-Back\\Microservio.Destino\\Application\\obj\\",
+      "projectPath": "C:\\Users\\Nicolás Silva\\Desktop\\Nueva carpeta\\Microservio.Destino\\Application\\Application.csproj",
+      "packagesPath": "C:\\Users\\Nicolás Silva\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Nicolás Silva\\Desktop\\Nueva carpeta\\Microservio.Destino\\Application\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\lauta\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Nicolás Silva\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4916,8 +4916,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\lauta\\source\\repos\\Agencia de Viajes-Back\\Microservio.Destino\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\lauta\\source\\repos\\Agencia de Viajes-Back\\Microservio.Destino\\Domain\\Domain.csproj"
+            "C:\\Users\\Nicolás Silva\\Desktop\\Nueva carpeta\\Microservio.Destino\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\Nicolás Silva\\Desktop\\Nueva carpeta\\Microservio.Destino\\Domain\\Domain.csproj"
             }
           }
         }
