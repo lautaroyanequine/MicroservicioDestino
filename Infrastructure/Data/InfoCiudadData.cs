@@ -36,7 +36,7 @@ En cuanto a la gastronomía, La Plata ofrece una amplia variedad de opciones. Lo
                     "La ciudad también ofrece una variada oferta de entretenimiento. El famoso Casino Central de Mar del Plata es un ícono de la ciudad y atrae a aquellos que buscan disfrutar de la emoción del juego. Además, los teatros, cines y centros culturales brindan una amplia oferta de espectáculos, películas y exposiciones artísticas." +
                     "La ciudad también ofrece una variada oferta de entretenimiento. El famoso Casino Central de Mar del Plata es un ícono de la ciudad y atrae a aquellos que buscan disfrutar de la emoción del juego. Además, los teatros, cines y centros culturales brindan una amplia oferta de espectáculos, películas y exposiciones artísticas." +
                     "En resumen, Mar del Plata es una ciudad costera que combina playas hermosas, entretenimiento, cultura y una animada vida nocturna. Con su amplia oferta turística, brinda a los visitantes la posibilidad de relajarse, divertirse y disfrutar de una experiencia única junto al mar.",
-                    ImagenUrl = "https://notife.com/wp-content/uploads/2019/01/DxIp9WpWkAAVmlq.jpg"
+                    ImagenUrl = "https://upload.wikimedia.org/wikipedia/commons/9/94/Stensj%C3%B6lejon_i_Mar_del_Plata.jpg"
                 },
 
                 new InfoCiudad
