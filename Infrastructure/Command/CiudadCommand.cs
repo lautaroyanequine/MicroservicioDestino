@@ -14,6 +14,7 @@ namespace Infrastructure.Command
         {
             if (ciudad != null)
             {
+                _context.Ciudades.Include(c => c.Provincia.Pais).Load(); 
                 _context.Add(ciudad);
                 _context.SaveChanges();
             }
@@ -34,10 +35,8 @@ namespace Infrastructure.Command
 
         public Ciudad UpdateCiudad(int ciudadId, CiudadRequest request)
         {
-            var entryOriginal = _context.Ciudades.Include(c => c.Provincia)
-                .ThenInclude(pa => pa.Pais)
-                .FirstOrDefault(x => x.CiudadId == ciudadId);
-            if (entryOriginal != null)
+            var entryOriginal = _context.Ciudades.Include(c => c.Provincia.Pais)
+           .FirstOrDefault(x => x.CiudadId == ciudadId); 
             {
                 entryOriginal.Nombre = request.Nombre;
                 entryOriginal.ProvinciaId = request.ProvinciaId;

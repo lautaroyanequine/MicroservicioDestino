@@ -66,6 +66,194 @@ namespace Infrastructure.Migrations
                     { 152, 152, "Oporto, una ciudad pintoresca en el noroeste de Portugal, es famosa por su historia vinícola, su arquitectura encantadora y su ambiente auténtico. Con su ubicación junto al río Duero, sus colinas empinadas y sus calles empedradas, Oporto ofrece una experiencia única para los visitantes.\r\n\r\nEl centro histórico de Oporto, declarado Patrimonio de la Humanidad por la UNESCO, es un laberinto de calles estrechas y sinuosas que invitan a explorar. Aquí se encuentran monumentos impresionantes como la Catedral de Oporto y la Torre de los Clérigos, que ofrecen vistas panorámicas de la ciudad. Los visitantes pueden perderse en el barrio medieval de Ribeira, pasear por el pintoresco paseo junto al río y admirar los coloridos edificios de azulejos.\r\n\r\nLos famosos bodegas de vino de Oporto son una atracción destacada. Situadas en Vila Nova de Gaia, al otro lado del río Duero, estas bodegas ofrecen catas y visitas guiadas para aprender sobre la producción y el envejecimiento de los vinos de Oporto. Los amantes del vino pueden deleitarse con la variedad de sabores y descubrir los secretos de esta tradición vinícola centenaria.\r\n\r\nEl Mercado do Bolhão es un lugar vibrante y colorido donde se puede disfrutar de la auténtica atmósfera de Oporto. Este mercado cubierto ofrece una amplia selección de productos frescos, desde frutas y verduras hasta pescado y carne. Además, es un lugar perfecto para probar platos tradicionales portugueses como el bacalao o el francesinha, un sándwich caliente y sabroso.\r\n\r\nEl Jardín del Palacio de Cristal es un oasis verde en el corazón de la ciudad. Este hermoso parque ofrece jardines exuberantes, miradores con vistas panorámicas y un pabellón de cristal que alberga exposiciones y eventos culturales. Es el lugar perfecto para disfrutar de un picnic, dar un paseo relajante o simplemente disfrutar de la tranquilidad.\r\n\r\nLa gastronomía en Oporto es deliciosa y variada. La ciudad es conocida por sus platos tradicionales, como la francesinha, el arroz de pato y los pasteles de bacalao. Además, los restaurantes y tascas locales ofrecen una amplia selección de pescados y mariscos frescos, que se pueden disfrutar con una copa de vino de Oporto.\r\n\r\nLa vida cultural en Oporto es animada y emocionante. La ciudad alberga festivales de música, teatro y cine a lo largo del año, como el Festival Internacional de Cine de Oporto y el Festival Primavera Sound. Además, Oporto cuenta con una escena artística vibrante, con galerías de arte y museos que exhiben obras de artistas locales e internacionales.", "https://interrailero.com/wp-content/uploads/2023/01/oporto-que-ver-en-3-dias.jpg" },
                     { 153, 153, "Faro, la capital de la región del Algarve en Portugal, es una encantadora ciudad costera que combina historia, playas hermosas y una vibrante vida urbana. Con su casco antiguo amurallado, su rica herencia cultural y su ambiente relajado, Faro ofrece una experiencia única para los visitantes.\r\n\r\nEl casco antiguo de Faro, conocido como la Ciudad Vieja, está rodeado de murallas y ofrece un encanto pintoresco. Sus calles empedradas, sus casas blancas y sus plazas llenas de cafés y restaurantes crean una atmósfera auténtica. La Catedral de Faro, situada en el centro de la Ciudad Vieja, es un lugar destacado con su impresionante arquitectura gótica y vistas panorámicas desde su torre.\r\n\r\nLa Ría Formosa, una laguna protegida y un parque natural, es una joya natural que rodea Faro. Con sus marismas, islas y extensas playas de arena dorada, ofrece un refugio para los amantes de la naturaleza. Los visitantes pueden explorar la Ría Formosa en barco, hacer senderismo por los senderos naturales y disfrutar de la observación de aves en su entorno.\r\n\r\nLa playa de Faro, situada en la isla de Faro, es un destino popular para disfrutar del sol y el mar. Con su amplia extensión de arena, aguas tranquilas y servicios de playa, es un lugar perfecto para relajarse y disfrutar de actividades acuáticas. Además, otras playas cercanas como Ilha Deserta y Ilha do Farol ofrecen un ambiente más tranquilo y vírgen.\r\n\r\nLa gastronomía en Faro es deliciosa y variada. La ciudad es conocida por sus mariscos frescos y platos tradicionales portugueses. Los restaurantes y tascas locales ofrecen especialidades como el arroz de marisco, la cataplana (un guiso de mariscos) y los pasteles de nata. Además, los mercados de alimentos, como el Mercado Municipal de Faro, ofrecen una selección de productos locales y regionales.\r\n\r\nLa vida cultural en Faro es animada y vibrante. La ciudad alberga festivales de música, teatro y artes visuales a lo largo del año, como el Festival F de Faro y el Festival Internacional de Música de la Ciudad de Faro. Además, Faro cuenta con una escena artística emergente, con galerías de arte y eventos culturales que exhiben el talento local y contemporáneo.", "https://hips.hearstapps.com/elle-es/assets/15/37/original/original-das-faro-portugal-la-gran-capital-del-algarve-11823347-1-esl-es-faro-la-gran-capital-del-algarve-jpg.jpg" }
                 });
+
+            migrationBuilder.Sql("INSERT INTO pais (nombre, codigo) VALUES ('Jordania', 'JOR');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Islas Marianas del Norte', 'MNP');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Serbia', 'SRB');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Andorra', 'AND');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Islas Turks y Caicos', 'TCA');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Bermudas', 'BER');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Antártida', 'ATA');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Bolivia', 'BOL');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Libia', 'LBA');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Mali', 'MLI');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Armenia', 'ARM');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Mauricio', 'MRI');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Maldivas', 'MDV');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Samoa Americana', 'ASA');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Macedonia del Norte', 'MKD');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Etiopía', 'ETH');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Groenlandia', 'GRL');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Irak', 'IRQ');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Guatemala', 'GUA');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Trinidad y Tobago', 'TTO');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Surinam', 'SUR');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Suecia', 'SWE');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Nueva Caledonia', 'NCL');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Polinesia Francesa', 'PYF');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Benín', 'BEN');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Estonia', 'EST');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Islas Malvinas', 'FLK');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Guam', 'GUM');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Zimbabue', 'ZIM');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('República Eslovaca', 'SVK');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Países Bajos', 'NED');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Ecuador', 'ECU');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Arabia Saudí', 'KSA');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Emiratos Árabes Unidos', 'UAE');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Afganistán', 'AFG');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Islas Ultramarinas Menores de Estados Unidos', 'UMI');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('República Centroafricana', 'CAF');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Panamá', 'PAN');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Ciudad del Vaticano', 'VAT');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Siria', 'SYR');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Vanuatu', 'VAN');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Honduras', 'HON');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Kiribati', 'KIR')" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Mauritania', 'MTN');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Israel', 'ISR');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Curazao', 'CUW');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Brunei', 'BRU');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Angola', 'ANG');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Malta', 'MLT');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Bielorrusia', 'BLR')" +
+                ";\r\nINSERT INTO pais (nombre, codigo) VALUES ('Turquía', 'TUR');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Finlandia', 'FIN');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Gibraltar', 'GIB');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Bután', 'BHU');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Venezuela', 'VEN');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Catar', 'QAT');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Chequia', 'CZE');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Kuwait', 'KUW');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Montenegro', 'MNE');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Isla Bouvet', 'BVT');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('India', 'IND');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Nueva Zelanda', 'NZL');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Jamaica', 'JAM');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Islas Caimán', 'CAY');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('San Marino', 'SMR');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Congo', 'CGO');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Pakistán', 'PAK');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Kazajistán', 'KAZ');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Bahrein', 'BHR');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Fiyi', 'FIJ');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Islandia', 'ISL');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Myanmar', 'MYA');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Bangladesh', 'BAN');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Filipinas', 'PHI');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Guinea Ecuatorial', 'GEQ');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Irlanda', 'IRL');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Nepal', 'NEP');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Yemen', 'YEM');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Corea del Sur', 'KOR');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Dinamarca', 'DEN');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Omán', 'OMA');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('San Vicente y Granadinas', 'VIN');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Eritrea', 'ERI');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Iran', 'IRI');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('El Salvador', 'ESA');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Tanzania', 'TAN');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Guadalupe', 'GLP');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Islas Salomón', 'SOL');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Kenia', 'KEN');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('República Dominicana', 'DOM');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Grecia', 'GRE');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Guernsey', 'GGY');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Ruanda', 'RWA');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('San Pedro y Miquelón', 'SPM');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Tuvalu', 'TUV');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Taiwán', 'TPE');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Guyana', 'GUY');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Seychelles', 'SEY');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Corea del Norte', 'PRK');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Botswana', 'BOT');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Camboya', 'CAM');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Barbados', 'BAR');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Ucrania', 'UKR');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Costa de Marfil', 'CIV');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Nauru', 'NRU');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Namibia', 'NAM');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Chad', 'CHA');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Tonga', 'TGA');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Isla de Navidad', 'CXR');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Níger', 'NIG');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Islas Marshall', 'MHL');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Costa Rica', 'CRC');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Ghana', 'GHA');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Austria', 'AUT');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Santa Elena, Ascensión y Tristán de Acuña', 'SHN');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Palestina', 'PLE');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Cuba', 'CUB');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Hungría', 'HUN');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Micronesia', 'FSM');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Belice', 'BIZ');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Bahamas', 'BAH');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Aruba', 'ARU');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Santo Tomé y Príncipe', 'STP');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Luxemburgo', 'LUX');\r\nINSERT INTO pais (nombre, codigo) VALUES ('Islas Faroe', 'FRO');\r\nINSERT INTO pais (nombre, codigo) VALUES ('Nicaragua', 'NCA');\r\nINSERT INTO pais (nombre, codigo) VALUES ('Túnez', 'TUN');\r\nINSERT INTO pais (nombre, codigo) VALUES ('Congo (Rep. Dem.)', 'COD');\r\nINSERT INTO pais (nombre, codigo) VALUES ('Islas Svalbard y Jan Mayen', 'SJM');\r\nINSERT INTO pais (nombre, codigo) VALUES ('Sudáfrica', 'RSA');\r\nINSERT INTO pais (nombre, codigo) VALUES ('Sierra Leone', 'SLE');\r\nINSERT INTO pais (nombre, codigo) VALUES ('Lesotho', 'LES');\r\nINSERT INTO pais (nombre, codigo) VALUES ('Islas Georgias del Sur y Sandwich del Sur', 'SGS');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Djibouti', 'DJI');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Islas Heard y McDonald', 'HMD');\r\nINSERT INTO pais (nombre, codigo) VALUES ('Sri Lanka', 'SRI');\r\nINSERT INTO pais (nombre, codigo) VALUES ('Santa Lucía', 'LCA');\r\nINSERT INTO pais (nombre, codigo) VALUES ('Samoa', 'SAM');\r\nINSERT INTO pais (nombre, codigo) VALUES ('Islas Cocos o Islas Keeling', 'CCK');\r\nINSERT INTO pais (nombre, codigo) VALUES ('Puerto Rico', 'PUR');\r\nINSERT INTO pais (nombre, codigo) VALUES ('Gabón', 'GAB');\r\nINSERT INTO pais (nombre, codigo) VALUES ('Turkmenistán', 'TKM');\r\nINSERT INTO pais (nombre, codigo) VALUES ('Letonia', 'LAT');\r\nINSERT INTO pais (nombre, codigo) VALUES ('Senegal', 'SEN');\r\nINSERT INTO pais (nombre, codigo) VALUES ('Bélgica', 'BEL');\r\nINSERT INTO pais (nombre, codigo) VALUES ('Moldavia', 'MDA');\r\nINSERT INTO pais (nombre, codigo) VALUES ('Liechtenstein', 'LIE');\r\nINSERT INTO pais (nombre, codigo) VALUES ('Malawi', 'MAW');\r\nINSERT INTO pais (nombre, codigo) VALUES ('Líbano', 'LBN');\r\nINSERT INTO pais (nombre, codigo) VALUES ('Mongolia', 'MGL');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Noruega', 'NOR');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Islas Vírgenes del Reino Unido', 'IVB');\r\nINSERT INTO pais (nombre, codigo) VALUES ('Camerún', 'CMR');\r\nINSERT INTO pais (nombre, codigo) VALUES ('Tailandia', 'THA');\r\nINSERT INTO pais (nombre, codigo) VALUES ('Nigeria', 'NGR');\r\nINSERT INTO pais (nombre, codigo) VALUES ('Reunión', 'REU');\r\nINSERT INTO pais (nombre, codigo) VALUES ('Cabo Verde', 'CPV');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Jersey', 'JEY');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Argelia', 'ALG');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Laos', 'LAO');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Caribe Neerlandés', 'BES')" +
+                ";\r\nINSERT INTO pais (nombre, codigo) VALUES ('Azerbaiyán', 'AZE');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Sint Maarten', 'SXM');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Marruecos', 'MAR');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Alandia', 'ALA');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Bulgaria', 'BUL');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Burundi', 'BDI');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Uganda', 'UGA');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Kosovo', 'KOS');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Mozambique', 'MOZ');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Georgia', 'GEO');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Wallis y Futuna', 'WLF');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Islas Pitcairn', 'PCN');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Rumania', 'ROU');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Vietnam', 'VIE');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Tierras Australes y Antárticas Francesas', 'ATF');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Sahara Occidental', 'ESH');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Egipto', 'EGY');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Liberia', 'LBR');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Lituania', 'LTU');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Haití', 'HAI');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Islas Vírgenes de los Estados Unidos', 'ISV');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Papúa Nueva Guinea', 'PNG');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Hong Kong', 'HKG');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Kirguizistán', 'KGZ');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Palau', 'PLW');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Madagascar', 'MAD');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Gambia', 'GAM');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Togo', 'TOG');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Islas Tokelau', 'TKL');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Eslovenia', 'SLO');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Singapur', 'SGP');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Guayana Francesa', 'GUF');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Montserrat', 'MSR');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Malasia', 'MAS');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Antigua y Barbuda', 'ANT');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Saint Martin', 'MAF');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Somalia', 'SOM');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Macao', 'MAC');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Albania', 'ALB');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Mayotte', 'MYT');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Dominica', 'DMA');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Zambia', 'ZAM');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Anguilla', 'AIA');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Islas Cook', 'COK');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Martinica', 'MTQ');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Guinea', 'GUI');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Comoras', 'COM');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Niue', 'NIU');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Suiza', 'SUI');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Isla de Norfolk', 'NFK');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Isla de Man', 'IMN');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Sudán', 'SUD');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Tayikistán', 'TJK');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Chipre', 'CYP');" +
+                "\r\nINSERT INTO pais (nombre, codigo) VALUES ('Guinea-Bisáu', 'GBS');");
         }
 
         /// <inheritdoc />

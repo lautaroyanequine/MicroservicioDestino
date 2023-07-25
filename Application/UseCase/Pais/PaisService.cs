@@ -18,28 +18,9 @@ namespace Application.UseCase
             _query = query;
         }
 
-        public async Task<bool> IsValidCountry(string countryName)
+
+        public  PaisResponse CreatePais(PaisRequest request)
         {
-            HttpClient client = new HttpClient();
-            string url = "https://restcountries.com/v3.1/all";
-            HttpResponseMessage response = await client.GetAsync(url);
-            bool existe = false;
-            if (response.IsSuccessStatusCode)
-            {
-                string json = await response.Content.ReadAsStringAsync();
-
-                List<Country> countries = JsonConvert.DeserializeObject<List<Country>>(json);
-                var country = countries.FirstOrDefault(c => c.translations.spa.common == countryName);
-                if (country != null) { existe = true; }
-
-            }
-            if (existe) return true;
-            return false;
-        }
-
-        public async Task<PaisResponse> CreatePais(PaisRequest request)
-        {
-            if (!await IsValidCountry(request.Nombre)) throw new IdInvalidoException(); ;
 
             if (!(_query.GetPais(request.Nombre.ToUpper()) == null)) throw new ElementoYaExisteException();
 
@@ -103,10 +84,9 @@ namespace Application.UseCase
             };
         }
 
-        public async Task<PaisResponse> UpdatePais(int paisId, PaisRequest request)
+        public PaisResponse UpdatePais(int paisId, PaisRequest request)
         {
 
-            if (!await IsValidCountry(request.Nombre)) throw new IdInvalidoException(); ;
 
             if (_query.GetPais(request.Nombre.ToUpper()) != null) throw new ElementoYaExisteException();
             var pais = _command.UpdatePais(paisId, request);

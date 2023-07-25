@@ -30,14 +30,16 @@ namespace Application.UseCase
         public CiudadResponse CreateCiudad(CiudadRequest request)
         {
             if (!(_query.GetCiudad(request.Nombre.ToUpper()) == null) && _query.GetCiudad(request.Nombre).ProvinciaId == request.ProvinciaId) throw new ElementoYaExisteException();
-            if (_queryProvincia.GetProvincia(request.ProvinciaId) == null) throw new ElementoInexistenteException();
+            var provincia = _queryProvincia.GetProvincia(request.ProvinciaId);
+            if (provincia == null)
+                throw new ElementoInexistenteException();
+
 
             var ciudad = new Ciudad
             {
                 Nombre = request.Nombre,
                 ProvinciaId = request.ProvinciaId,
-                Provincia = _queryProvincia.GetProvincia(request.ProvinciaId)
-
+                Provincia = provincia
             };
 
             _command.InsertCiudad(ciudad);
@@ -47,14 +49,13 @@ namespace Application.UseCase
                 Nombre = request.Nombre,
                 Provincia = new ProvinciaResponse
                 {
-                    Id = ciudad.ProvinciaId,
-                    Nombre = _query.GetCiudad(ciudad.CiudadId).Provincia.Nombre,
+                    Id = provincia.ProvinciaId,
+                    Nombre = provincia.Nombre,
                     Pais = new PaisResponse
                     {
-                        Id = _queryProvincia.GetProvincia(ciudad.ProvinciaId).PaisId,
-                        Nombre = _queryProvincia.GetProvincia(ciudad.ProvinciaId).Pais.Nombre,
-                        Codigo = _queryProvincia.GetProvincia(ciudad.ProvinciaId).Pais.Codigo
-
+                        Id = provincia.PaisId,
+                        Nombre = provincia.Pais.Nombre,
+                        Codigo = provincia.Pais.Codigo
                     }
                 }
             };
@@ -110,12 +111,12 @@ namespace Application.UseCase
                     Provincia = new ProvinciaResponse
                     {
                         Id = ciudad.ProvinciaId,
-                        Nombre = _query.GetCiudad(ciudad.CiudadId).Provincia.Nombre,
+                        Nombre =ciudad.Provincia.Nombre,
                         Pais = new PaisResponse
                         {
-                            Id = _queryProvincia.GetProvincia(ciudad.ProvinciaId).PaisId,
-                            Nombre = _queryProvincia.GetProvincia(ciudad.ProvinciaId).Pais.Nombre,
-                            Codigo = _queryProvincia.GetProvincia(ciudad.ProvinciaId).Pais.Codigo
+                            Id = ciudad.Provincia.Pais.PaisId,
+                            Nombre = ciudad.Provincia.Pais.Nombre,
+                            Codigo = ciudad.Provincia.Pais.Codigo,
 
                         }
                     }
@@ -151,28 +152,44 @@ namespace Application.UseCase
 
         public CiudadResponse UpdateCiudad(int ciudadId, CiudadRequest request)
         {
+            var ciudad = _query.GetCiudad(ciudadId);
+            if (ciudad == null)
+            {
+                throw new ElementoInexistenteException();
+            }
 
-            if (_query.GetCiudad(request.Nombre.ToUpper()) != null) throw new ElementoYaExisteException();
-            if (_queryProvincia.GetProvincia(request.ProvinciaId) == null) throw new IdInvalidoException();
+            if (_query.GetCiudad(request.Nombre.ToUpper()) != null)
+            {
+                throw new ElementoYaExisteException();
+            }
 
-            var ciudad = _command.UpdateCiudad(ciudadId, request);
-            if (ciudad == null) throw new ElementoInexistenteException();
+            var provincia = _queryProvincia.GetProvincia(request.ProvinciaId);
+            if (provincia == null)
+            {
+                throw new IdInvalidoException();
+            }
+
+            
+
+            var ciudadRespuesta=_command.UpdateCiudad(ciudadId,request);
+
+            var provinciaResponse = new ProvinciaResponse
+            {
+                Id = ciudadRespuesta.Provincia.ProvinciaId,
+                Nombre = ciudadRespuesta.Provincia.Nombre,
+                Pais = new PaisResponse
+                {
+                    Id = provincia.PaisId,
+                    Nombre = provincia.Pais.Nombre,
+                    Codigo = provincia.Pais.Codigo
+                }
+            };
+
             return new CiudadResponse
             {
-                Id = ciudad.CiudadId,
-                Nombre = ciudad.Nombre,
-                Provincia = new ProvinciaResponse
-                {
-                    Id = ciudad.ProvinciaId,
-                    Nombre = _query.GetCiudad(ciudad.CiudadId).Provincia.Nombre,
-                    Pais = new PaisResponse
-                    {
-                        Id = _queryProvincia.GetProvincia(ciudad.ProvinciaId).PaisId,
-                        Nombre = _queryProvincia.GetProvincia(ciudad.ProvinciaId).Pais.Nombre,
-                        Codigo = _queryProvincia.GetProvincia(ciudad.ProvinciaId).Pais.Codigo
-
-                    }
-                }
+                Id = ciudadRespuesta.CiudadId,
+                Nombre = ciudadRespuesta.Nombre,
+                Provincia = provinciaResponse
             };
         }
     }

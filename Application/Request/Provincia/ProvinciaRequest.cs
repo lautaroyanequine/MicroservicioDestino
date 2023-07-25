@@ -5,7 +5,5 @@
         public string Nombre { get; set; }
 
         public int PaisId { get; set; }
-
-        //public ICollection<Ciudad> Ciudades { get; set; }
     }
 }

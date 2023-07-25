@@ -38,5 +38,7 @@ namespace Infrastructure.Query
 
             return query.ToList();
         }
+
+
     }
 }

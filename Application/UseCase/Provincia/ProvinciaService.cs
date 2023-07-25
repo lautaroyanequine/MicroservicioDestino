@@ -94,11 +94,8 @@ namespace Application.UseCase
                     Pais = new PaisResponse
                     {
                         Id = provincia.PaisId,
-                        Nombre = _queryPais.GetPais(provincia.PaisId).Nombre,
-                        Codigo = _queryPais.GetPais(provincia.PaisId).Codigo
-
-
-
+                        Nombre = provincia.Pais.Nombre,
+                        Codigo = provincia.Pais.Codigo
                     }
                 });
             }

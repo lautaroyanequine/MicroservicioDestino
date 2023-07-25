@@ -26,7 +26,7 @@ namespace Infrastructure.Query
 
         public List<Provincia> GetProvinciaList(string? orden = "ASC", string? nombre = null, string pais = null)
         {
-            IQueryable<Provincia> query = _context.Provincias;
+            IQueryable<Provincia> query = _context.Provincias.Include(p => p.Pais);
             if (!string.IsNullOrEmpty(nombre))
             {
                 query = query.Where(p => p.Nombre.StartsWith(nombre));
