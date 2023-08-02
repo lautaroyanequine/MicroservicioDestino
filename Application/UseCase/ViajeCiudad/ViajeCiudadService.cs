@@ -39,9 +39,6 @@ namespace Application.UseCase
         {
             if (_queryCiudad.GetCiudad(request.CiudadId) == null) throw new ElementoInexistenteException();
 
-            //var response = _clientViaje.ObtenerViaje(request.ViajeId);
-
-
             var viajeCiudad = new ViajeCiudad
             {
                 CiudadId = request.CiudadId,
@@ -182,9 +179,6 @@ namespace Application.UseCase
         {
 
             if (_queryCiudad.GetCiudad(request.CiudadId) == null) throw new IdInvalidoException();
-
-            var response = _clientViaje.ObtenerViaje(request.ViajeId);
-
 
             var viajeCiudad = _command.UpdateViajeCiudad(viajeCiudadId, request);
             if (viajeCiudad == null) throw new ElementoInexistenteException();

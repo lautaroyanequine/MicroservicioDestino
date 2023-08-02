@@ -48,7 +48,7 @@ namespace Destinos.Controllers
             try
             {
                 var result = _service.GetCiudadList(orden, nombre, provincia, pais);
-                return new JsonResult(result);
+                return new JsonResult(result) { StatusCode = StatusCodes.Status200OK }; ;
 
             }
             catch (DatoInvalidoException ex)
@@ -84,7 +84,7 @@ namespace Destinos.Controllers
             try
             {
                 var result = _service.GetCiudadById(id);
-                return new JsonResult(result);
+                return new JsonResult(result) { StatusCode = StatusCodes.Status200OK };
 
             }
 
@@ -103,17 +103,16 @@ namespace Destinos.Controllers
 
         [HttpDelete("{id}")]
         [ProducesResponseType(typeof(CiudadResponse), 200)]
-        [ProducesResponseType(typeof(BadRequest), 400)]
-        [ProducesResponseType(typeof(BadRequest), 409)]
+        [ProducesResponseType(typeof(BadRequest), 404)]
         public IActionResult DeleteCiudad(int id)
         {
             try
             {
                 var result = _service.RemoveCiudad(id);
-                return new JsonResult(result);
+                return new JsonResult(result) { StatusCode = StatusCodes.Status200OK };
             }
             catch (ElementoInexistenteException elementoInexistente)
-            { return BadRequest(new { message = "No existe la ciudad que quiere eliminar" }); }
+            { return NotFound(new { message = "No existe la ciudad que quiere eliminar" }); }
         }
 
 
@@ -130,7 +129,7 @@ namespace Destinos.Controllers
             try
             {
                 var result = _service.UpdateCiudad(id, request);
-                return new JsonResult(result);
+                return new JsonResult(result) { StatusCode = StatusCodes.Status200OK };
             }
 
             catch (ElementoYaExisteException elementoInexistente)

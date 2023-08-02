@@ -50,7 +50,7 @@ namespace Destinos.Controllers
             try
             {
                 var result = _service.GetPaisList(orden, nombre);
-                return new JsonResult(result);
+                return new JsonResult(result) { StatusCode = StatusCodes.Status200OK };
 
             }
             catch (DatoInvalidoException ex)
@@ -77,7 +77,7 @@ namespace Destinos.Controllers
             try
             {
                 var result = _service.GetPaisById(id);
-                return new JsonResult(result);
+                return new JsonResult(result) { StatusCode = StatusCodes.Status200OK };
 
             }
 
@@ -102,16 +102,15 @@ namespace Destinos.Controllers
         [ProducesResponseType(typeof(PaisResponse), 200)]
         [ProducesResponseType(typeof(BadRequest), 400)]
         [ProducesResponseType(typeof(BadRequest), 404)]
-        [ProducesResponseType(typeof(BadRequest), 409)]
         public IActionResult DeletePais(int id)
         {
             try
             {
                 var result = _service.RemovePais(id);
-                return new JsonResult(result);
+                return new JsonResult(result) { StatusCode = StatusCodes.Status200OK };
             }
             catch (ElementoInexistenteException elementoInexistente)
-            { return BadRequest(new { message = "No existe el pais que quiere eliminar" }); }
+            { return NotFound(new { message = "No existe el pais que quiere eliminar" }); }
         }
 
         [HttpPut("{id}")]
@@ -126,7 +125,7 @@ namespace Destinos.Controllers
             try
             {
                 var result = _service.UpdatePais(id, request);
-                return new JsonResult(result);
+                return new JsonResult(result) { StatusCode = StatusCodes.Status200OK };
             }
 
             catch (ElementoYaExisteException elementoInexistente)

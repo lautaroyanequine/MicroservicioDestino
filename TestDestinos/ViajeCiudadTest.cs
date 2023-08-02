@@ -1,336 +1,45 @@
 using Application.Exceptions;
+using Application.Interfaces;
 using Application.Interfaces.ICiudad;
 using Application.Interfaces.IPais;
 using Application.Interfaces.IProvincia;
-using Application.Interfaces.IProvincia;
-using Application.Request.Ciudad;
-using Application.Request.Provincia;
-using Application.Response.Ciudad;
-using Application.Response.Provincia;
+using Application.Interfaces.IViajeCiudad;
+using Application.Request.ViajeCiudad;
+using Application.Response.ViajeCiudad;
 using Application.UseCase;
 using Domain.Entities;
 using FluentAssertions;
 using Moq;
-using Xunit;
 
 namespace TestDestinos
 {
-    public class CiudadServiceTests
+    public class ViajeCiudadTests
     {
-        private readonly Mock<ICiudadCommand> mockCiudadCommand;
+        private readonly Mock<IViajeCiudadCommand> mockViajeCiudadCommand;
+        private readonly Mock<IViajeCiudadQuery> mockViajeCiudadQuery;
         private readonly Mock<ICiudadQuery> mockCiudadQuery;
         private readonly Mock<IProvinciaQuery> mockProvinciaQuery;
         private readonly Mock<IPaisQuery> mockPaisQuery;
+        private readonly Mock<IClientViaje> mockClientViaje;
+        private readonly ViajeCiudadService viajeCiudadService;
 
-
-        private readonly CiudadService ciudadService;
-
-        public CiudadServiceTests()
+        public ViajeCiudadTests()
         {
-            mockCiudadCommand = new Mock<ICiudadCommand>();
+            mockViajeCiudadCommand = new Mock<IViajeCiudadCommand>();
+            mockViajeCiudadQuery = new Mock<IViajeCiudadQuery>();
             mockCiudadQuery = new Mock<ICiudadQuery>();
             mockProvinciaQuery = new Mock<IProvinciaQuery>();
             mockPaisQuery = new Mock<IPaisQuery>();
+            mockClientViaje = new Mock<IClientViaje>();
 
-
-            ciudadService = new CiudadService(mockCiudadCommand.Object, mockCiudadQuery.Object, mockProvinciaQuery.Object, mockPaisQuery.Object);
+            viajeCiudadService = new ViajeCiudadService(mockViajeCiudadQuery.Object, mockViajeCiudadCommand.Object, mockCiudadQuery.Object, mockProvinciaQuery.Object, mockPaisQuery.Object, mockClientViaje.Object);
         }
 
-        [Fact]
-        public void CreateCiudad_WithValidRequest_ReturnsCreatedCiudadResponse()
-        {
-
-            //Arrange
-            var request = new CiudadRequest{ Nombre = "Quilmes", ProvinciaId = 1 };
-            var paisArgentina = new Pais { PaisId = 1, Nombre = "Argentina", Codigo = "ARG" };
-            var provincia = new Provincia { ProvinciaId = 2, Nombre = "Buenos Aires", PaisId = 1, Pais = paisArgentina };
-            var ciudad = new Ciudad();
-
-
-            mockCiudadQuery.Setup(q => q.GetCiudad(request.Nombre.ToUpper())).Returns((Ciudad)null);
-            mockProvinciaQuery.Setup(q => q.GetProvincia(request.ProvinciaId)).Returns((Provincia)provincia);
-
-            mockCiudadCommand.Setup(q => q.InsertCiudad(It.IsAny<Ciudad>()))
-                .Callback<Ciudad>(c => ciudad = c);
-                
-
-
-            // Act
-            CiudadResponse result = ciudadService.CreateCiudad(request);
-
-            // Assert
-            result.Should().NotBeNull();
-            result.Id.Should().Be(ciudad.CiudadId);
-            result.Nombre.Should().Be(request.Nombre);
-            result.Provincia.Should().NotBeNull();
-            result.Provincia.Id.Should().Be(provincia.ProvinciaId);
-            result.Provincia.Nombre.Should().Be(provincia.Nombre);
-            result.Provincia.Pais.Id.Should().Be(paisArgentina.PaisId);
-
-        }
 
         [Fact]
-        public void CreateCiudad_ThrowElementoYaExisteException()
+        public void CreateViajeCiudad_WithValidRequest_ReturnsCreateViajeCiudadResponse()
         {
             //Arrange
-            var request = new CiudadRequest { Nombre = "Quilmes", ProvinciaId = 1 };
-            var paisArgentina = new Pais { PaisId = 1, Nombre = "Argentina", Codigo = "ARG" };
-            var provincia = new Provincia { ProvinciaId = 2, Nombre = "Buenos Aires", PaisId = 1, Pais = paisArgentina };
-            var ciudadÝaExistente = new Ciudad { CiudadId = 2, Nombre = "Quilmes", ProvinciaId = 1 };
-
-            mockCiudadQuery.Setup(q => q.GetCiudad(request.Nombre.ToUpper())).Returns((Ciudad)ciudadÝaExistente);
-            mockCiudadQuery.Setup(q => q.GetCiudad(request.Nombre)).Returns((Ciudad)ciudadÝaExistente);
-
-            mockProvinciaQuery.Setup(q => q.GetProvincia(request.ProvinciaId)).Returns((Provincia)provincia);
-
-            // Act & Assert
-                   Assert.Throws<ElementoYaExisteException>(() => ciudadService.CreateCiudad(request));
-        }
-
-        [Fact]
-        public void CreateCiudad_ThrowElementoInexistenteException()
-        {
-            //Arrange
-            var request = new CiudadRequest { Nombre = "Quilmes", ProvinciaId = 1 };
-            var paisArgentina = new Pais { PaisId = 1, Nombre = "Argentina", Codigo = "ARG" };
-            var provincia = new Provincia { ProvinciaId = 2, Nombre = "Buenos Aires", PaisId = 1, Pais = paisArgentina };
-            var ciudadÝaExistente = new Ciudad { CiudadId = 2, Nombre = "Quilmes", ProvinciaId = 1 };
-
-            mockCiudadQuery.Setup(q => q.GetCiudad(request.Nombre.ToUpper())).Returns((Ciudad)null );
-            mockCiudadQuery.Setup(q => q.GetCiudad(request.Nombre)).Returns((Ciudad)ciudadÝaExistente);
-
-            mockProvinciaQuery.Setup(q => q.GetProvincia(request.ProvinciaId)).Returns((Provincia)null);
-
-            // Act & Assert
-            Assert.Throws<ElementoInexistenteException>(() => ciudadService.CreateCiudad(request));
-        }
-
-
-        [Fact]
-        public void GetCiudadById_ExistinCiudad_ReturnsCiudadResponse()
-        {
-            //Arrange
-            var paisArgentina = new Pais { PaisId = 1, Nombre = "Argentina", Codigo = "ARG" };
-            var provincia = new Provincia { ProvinciaId = 2, Nombre = "Buenos Aires", PaisId = 1, Pais = paisArgentina };
-            var ciudad = new Ciudad {CiudadId = 1, Nombre = "Quilmes", ProvinciaId = 1 ,Provincia=provincia};
-         
-
-
-            mockCiudadQuery.Setup(q => q.GetCiudad(1)).Returns((Ciudad)ciudad);
-            mockProvinciaQuery.Setup(q => q.GetProvincia(ciudad.ProvinciaId)).Returns(provincia);
-
-            // Act
-            CiudadResponse result = ciudadService.GetCiudadById(1);
-            // Assert
-            result.Should().NotBeNull();
-            result.Id.Should().Be(ciudad.CiudadId);
-            result.Nombre.Should().Be(ciudad.Nombre);
-            result.Provincia.Id.Should().Be(ciudad.ProvinciaId);
-            result.Provincia.Nombre.Should().Be(provincia.Nombre);
-            result.Provincia.Pais.Id.Should().Be(paisArgentina.PaisId);
-        }
-        [Fact]
-        public void GetCiudadById_NoExistingCiudad_ThrowElementoInexistenteException()
-        {
-            //Arrange
-
-            mockCiudadQuery.Setup(q => q.GetCiudad(It.IsAny<int>())).Returns((Ciudad)null);
-
-            // Act Assert
-            Assert.Throws<ElementoInexistenteException>(() => ciudadService.GetCiudadById(It.IsAny<int>()));
-
-
-        }
-
-        [Fact]
-        public void RemoveCiudad_ReturnCiudadResponse()
-        {
-
-
-            // Arrange
-            var paisArgentina = new Pais { PaisId = 1, Nombre = "Argentina", Codigo = "ARG" };
-            var provincia = new Provincia { ProvinciaId = 2, Nombre = "Buenos Aires", PaisId = 1, Pais = paisArgentina };
-            var ciudad = new Ciudad { CiudadId=1, Nombre = "Quilmes", ProvinciaId = 1 ,Provincia=provincia};
-
-            mockCiudadQuery.Setup(q => q.GetCiudad(1)).Returns((Ciudad)ciudad);
-            mockCiudadCommand.Setup(q => q.RemoveCiudad(1)).Returns((Ciudad)ciudad);
-            mockProvinciaQuery.Setup(q => q.GetProvincia(1)).Returns(provincia);
-
-            // Act
-
-            CiudadResponse result = ciudadService.RemoveCiudad(1);
-
-            // Assert
-            result.Should().NotBeNull();
-            result.Id.Should().Be(ciudad.CiudadId);
-            result.Nombre.Should().Be(ciudad.Nombre);
-            result.Provincia.Id.Should().Be(ciudad.ProvinciaId);
-            result.Provincia.Nombre.Should().Be(provincia.Nombre);
-            result.Provincia.Pais.Id.Should().Be(paisArgentina.PaisId);
-        }
-
-        [Fact]
-        public void RemoveCiudad_ThrowElementoInexistenteException()
-        {
-            //Arrange
-            mockCiudadCommand.Setup(q => q.RemoveCiudad(It.IsAny<int>())).Returns((Ciudad)null);
-
-            Assert.Throws<ElementoInexistenteException>(() => ciudadService.RemoveCiudad(1));
-
-        }
-
-
-        [Fact]
-        public void UpdateCiudad_ReturnCiudadResponse()
-        {
-            // Arrange
-            var ciudadRequest = new CiudadRequest { Nombre = "Quilmes", ProvinciaId = 1 };
-            var paisArgentina = new Pais { PaisId = 1, Nombre = "Argentina", Codigo = "ARG" };
-            var provincia = new Provincia { ProvinciaId = 1, Nombre = "Buenos Aires", PaisId = 1, Pais = paisArgentina };
-            var ciudad = new Ciudad { CiudadId = 1, Nombre = "Solano", Provincia = provincia, ProvinciaId = 1 };
-
-            mockCiudadQuery.Setup(q => q.GetCiudad(It.IsAny<int>())).Returns((Ciudad)ciudad);
-            mockCiudadQuery.Setup(q => q.GetCiudad(ciudadRequest.Nombre.ToUpper())).Returns((Ciudad)null);
-            mockProvinciaQuery.Setup(q => q.GetProvincia(ciudadRequest.ProvinciaId)).Returns((Provincia)provincia);
-
-            mockCiudadCommand.Setup(q => q.UpdateCiudad(1, ciudadRequest))
-                .Returns(new Ciudad {CiudadId = ciudad.CiudadId, Nombre = ciudadRequest.Nombre, ProvinciaId = ciudadRequest.ProvinciaId ,Provincia=provincia});
-
-
-            //Act
-            CiudadResponse result = ciudadService.UpdateCiudad(1, ciudadRequest);
-
-
-            //Assert
-            result.Should().NotBeNull();
-            result.Id.Should().Be(1);
-            result.Nombre.Should().Be(ciudadRequest.Nombre);
-            result.Provincia.Should().NotBeNull();
-            result.Provincia.Id.Should().Be(ciudadRequest.ProvinciaId);
-            result.Provincia.Nombre.Should().Be(provincia.Nombre);
-            result.Provincia.Pais.Id.Should().Be(provincia.PaisId);
-        }
-
-        [Fact]
-        public void UpdateCiudad_ThrowElementoYaExisteExceptio()
-        {
-            //Arrange
-            var ciudadRequest = new CiudadRequest { Nombre = "Solano", ProvinciaId = 1 };
-            var paisArgentina = new Pais { PaisId = 1, Nombre = "Argentina", Codigo = "ARG" };
-            var provincia = new Provincia { ProvinciaId = 1, Nombre = "Buenos Aires", PaisId = 1, Pais = paisArgentina };
-            var ciudad = new Ciudad { CiudadId = 1, Nombre = "Solano", Provincia = provincia, ProvinciaId = 1 };
-           
-            mockCiudadQuery.Setup(q => q.GetCiudad(It.IsAny<int>())).Returns((Ciudad)ciudad);
-
-            mockCiudadQuery.Setup(q => q.GetCiudad(It.IsAny<string>())).Returns((Ciudad)ciudad);
-
-            //Act Y assert
-            Assert.Throws<ElementoYaExisteException>(() => ciudadService.UpdateCiudad(1, ciudadRequest));
-        }
-        [Fact]
-        public void UpdateCiudad_ThrowElementoInexistenteException()
-        {
-            //Arrange
-            var ciudadRequest = new CiudadRequest { Nombre = "Solano", ProvinciaId = 1 };
-            var paisArgentina = new Pais { PaisId = 1, Nombre = "Argentina", Codigo = "ARG" };
-            var provincia = new Provincia { ProvinciaId = 1, Nombre = "Buenos Aires", PaisId = 1, Pais = paisArgentina };
-
-            mockCiudadQuery.Setup(q => q.GetCiudad(It.IsAny<int>())).Returns((Ciudad)null);
-
-
-            //Act Y assert
-            Assert.Throws<ElementoInexistenteException>(() => ciudadService.UpdateCiudad(1, ciudadRequest));
-        }
-        [Fact]
-        public void UpdateCiudad_ThrowIdInvalidoException()
-        {
-            //Arrange
-            var ciudadRequest = new CiudadRequest { Nombre = "Solano", ProvinciaId = 1 };
-            var paisArgentina = new Pais { PaisId = 1, Nombre = "Argentina", Codigo = "ARG" };
-            var provincia = new Provincia { ProvinciaId = 1, Nombre = "Buenos Aires", PaisId = 1, Pais = paisArgentina };
-            var ciudad = new Ciudad { CiudadId = 1, Nombre = "Solano", Provincia = provincia, ProvinciaId = 1 };
-
-            mockCiudadQuery.Setup(q => q.GetCiudad(It.IsAny<int>())).Returns((Ciudad)ciudad);
-
-            mockCiudadQuery.Setup(q => q.GetCiudad(It.IsAny<string>())).Returns((Ciudad)null);
-            mockProvinciaQuery.Setup(mockPaisQuery => mockPaisQuery.GetProvincia(ciudadRequest.ProvinciaId)).Returns((Provincia)null);
-
-            //Act Y assert
-            Assert.Throws<IdInvalidoException>(() => ciudadService.UpdateCiudad(1, ciudadRequest));
-        }
-
-
-        [Fact]
-        public void GetCiudadList_WithValidOrdenAsc_ReturnsFilteredAndOrderedProvinciaResponses()
-        {
-            // Arrange
-
-            var paisArgentina = new Pais { PaisId = 1, Nombre = "Argentina", Codigo = "ARG" };
-            var provincia = new Provincia { ProvinciaId = 1, Nombre = "Buenos Aires", PaisId = 1, Pais = paisArgentina };
-            var ciudades = new List<Ciudad>
-            {
-
-               new Ciudad { CiudadId = 1, Nombre = "Solano", Provincia = provincia, ProvinciaId = 1 },
-               new Ciudad { CiudadId = 2, Nombre = "Quilmes", Provincia = provincia, ProvinciaId = 1 },
-               new Ciudad { CiudadId = 3, Nombre = "Florencio Varela", Provincia = provincia, ProvinciaId = 1 },
-
-            };
-
-            mockCiudadQuery.Setup(x => x.GetCiudadList("ASC",null,null,null)).Returns(ciudades.OrderBy(p => p.Nombre).ToList());
-
-            // Act
-            List<CiudadResponse> result = ciudadService.GetCiudadList("ASC", null, null,null);
-
-            // Assert
-            result.Should().NotBeNull();
-            result.Should().HaveCount(3);
-            result[0].Id.Should().Be(3);
-            result[0].Nombre.Should().Be("Florencio Varela");
-            result[0].Provincia.Id.Should().Be(1);
-
-            result[1].Id.Should().Be(2);
-            result[1].Nombre.Should().Be("Quilmes");
-            result[1].Provincia.Id.Should().Be(1);
-
-            result[2].Id.Should().Be(1);
-            result[2].Nombre.Should().Be("Solano");
-            result[2].Provincia.Id.Should().Be(1);
-        }
-
-        [Fact]
-        public void GetCiudadList_WithNombreFilter_ReturnsFilteredCiudadList()
-        {
-            var paisArgentina = new Pais { PaisId = 1, Nombre = "Argentina", Codigo = "ARG" };
-            var provincia = new Provincia { ProvinciaId = 1, Nombre = "Buenos Aires", PaisId = 1, Pais = paisArgentina };
-            var ciudades = new List<Ciudad>
-            {
-
-               new Ciudad { CiudadId = 1, Nombre = "Solano", Provincia = provincia, ProvinciaId = 1 },
-               new Ciudad { CiudadId = 2, Nombre = "Quilmes", Provincia = provincia, ProvinciaId = 1 },
-               new Ciudad { CiudadId = 3, Nombre = "Florencio Varela", Provincia = provincia, ProvinciaId = 1 },
-
-            };
-
-            mockCiudadQuery.Setup(x => x.GetCiudadList("ASC", "Solano", null, null))
-                .Returns(ciudades.Where(c => c.Nombre.StartsWith("Solano")) .OrderBy(p => p.Nombre).ToList());
-
-
-
-            List<CiudadResponse> result = ciudadService.GetCiudadList("ASC", "Solano", null, null);
-
-            // Assert
-            
-            result.Should().NotBeNull();
-            result.Should().HaveCount(1);
-            result[0].Id.Should().Be(1);
-            result[0].Nombre.Should().Be("Solano");
-            result[0].Provincia.Id.Should().Be(1);
-        }
-
-        [Fact]
-        public void GetCiudadList_WithProvinciaFilter_ReturnsFilteredCiudadList()
-        {
-            // Arrange
             var paisArgentina = new Pais { PaisId = 1, Nombre = "Argentina", Codigo = "ARG" };
             var paisEspaña = new Pais { PaisId = 2, Nombre = "España", Codigo = "ESP" };
 
@@ -348,37 +57,56 @@ namespace TestDestinos
                new Ciudad { CiudadId = 2, Nombre = "Quilmes", Provincia = provincias[1], ProvinciaId = 1 },
                new Ciudad { CiudadId = 3, Nombre = "Florencio Varela", Provincia = provincias[1], ProvinciaId = 1 },
                new Ciudad { CiudadId = 4, Nombre = "Madrid", Provincia = provincias[2], ProvinciaId = 1 },
-
             };
-            mockCiudadQuery.Setup(x => x.GetCiudadList("ASC", null, "Buenos", null))
-            .Returns(ciudades.Where(c => c.Provincia.Nombre.StartsWith("Buenos")).OrderBy(p => p.Nombre).ToList());
-            mockProvinciaQuery.Setup(x => x.GetProvincia("Buenos")).Returns((Provincia)provincias[1]);
+
+            var request = new ViajeCiudadRequest { ViajeId = 1, CiudadId = 1, Tipo = "Destino" };
+
+            mockCiudadQuery.Setup(x => x.GetCiudad(request.CiudadId)).Returns((Ciudad)ciudades[0]);
+            mockProvinciaQuery.Setup(x => x.GetProvincia(1)).Returns((Provincia)provincias[1]);
+            mockPaisQuery.Setup(x => x.GetPais(1)).Returns((Pais)paisArgentina);
+
+            var viajeCiudad = new ViajeCiudad() { CiudadId = request.CiudadId, ViajeId = request.ViajeId, Ciudad = ciudades[0], Tipo = request.Tipo };
+
+            mockViajeCiudadCommand.Setup(x => x.InsertViajeCiudad(viajeCiudad))
+                .Callback<ViajeCiudad>(vc => viajeCiudad = vc);
+
             //Act
+            ViajeCiudadResponse result = viajeCiudadService.CreateViajeCiudad(request);
 
-            List<CiudadResponse> result = ciudadService.GetCiudadList("ASC", null, "Buenos", null);
-
-
-
-            // Assert
             result.Should().NotBeNull();
-            result.Should().HaveCount(3);
-            result[0].Id.Should().Be(3);
-            result[0].Nombre.Should().Be("Florencio Varela");
-            result[0].Provincia.Id.Should().Be(1);
+            result.ViajeId.Should().Be(request.ViajeId);
+            result.Ciudad.Should().NotBeNull();
+            result.Ciudad.Id.Should().Be(ciudades[0].CiudadId);
+            result.Ciudad.Nombre.Should().Be(ciudades[0].Nombre);
+            result.Ciudad.Provincia.Should().NotBeNull();
+            result.Ciudad.Provincia.Id.Should().Be(provincias[1].ProvinciaId);
+            result.Ciudad.Provincia.Nombre.Should().Be(provincias[1].Nombre);
+            result.Ciudad.Provincia.Pais.Should().NotBeNull();
+            result.Ciudad.Provincia.Pais.Id.Should().Be(paisArgentina.PaisId);
+            result.Ciudad.Provincia.Pais.Nombre.Should().Be(paisArgentina.Nombre);
+            result.Ciudad.Provincia.Pais.Codigo.Should().Be(paisArgentina.Codigo);
+            result.Id.Should().Be(viajeCiudad.ViajeCiudadId);
 
-            result[1].Id.Should().Be(2);
-            result[1].Nombre.Should().Be("Quilmes");
-            result[1].Provincia.Id.Should().Be(1);
+        }
 
-            result[2].Id.Should().Be(1);
-            result[2].Nombre.Should().Be("Solano");
-            result[2].Provincia.Id.Should().Be(1);
+
+
+        [Fact]
+        public void CreateViajeCiudad_ThrowElementoInexistenteException()
+        {
+            var request = new ViajeCiudadRequest { ViajeId = 1, CiudadId = 1, Tipo = "Destino" };
+
+            mockCiudadQuery.Setup(q => q.GetCiudad(request.CiudadId)).Returns((Ciudad)null);
+            // Act & Assert
+            Assert.Throws<ElementoInexistenteException>(() => viajeCiudadService.CreateViajeCiudad(request));
         }
 
         [Fact]
-        public void GetCiudadList_WithPaisFilter_ReturnsFilteredPaisList()
+        public void GetViajeCiudadById_ReturnViajeCiudadResponse()
         {
-            // Arrange
+
+            //Arrange
+
             var paisArgentina = new Pais { PaisId = 1, Nombre = "Argentina", Codigo = "ARG" };
             var paisEspaña = new Pais { PaisId = 2, Nombre = "España", Codigo = "ESP" };
 
@@ -395,51 +123,453 @@ namespace TestDestinos
                new Ciudad { CiudadId = 1, Nombre = "Solano", Provincia = provincias[1], ProvinciaId = 1 },
                new Ciudad { CiudadId = 2, Nombre = "Quilmes", Provincia = provincias[1], ProvinciaId = 1 },
                new Ciudad { CiudadId = 3, Nombre = "Florencio Varela", Provincia = provincias[1], ProvinciaId = 1 },
-               new Ciudad { CiudadId = 4, Nombre = "Madrid", Provincia = provincias[2], ProvinciaId = 3 },
-
+               new Ciudad { CiudadId = 4, Nombre = "Madrid", Provincia = provincias[2], ProvinciaId = 1 },
             };
-            mockCiudadQuery.Setup(x => x.GetCiudadList("ASC", null, null, "Espa"))
-            .Returns(ciudades.Where(c => c.Provincia.Pais.Nombre.StartsWith("Espa")).OrderBy(p => p.Nombre).ToList());
-            mockPaisQuery.Setup(z => z.GetPais("Espa")).Returns((Pais)paisEspaña);
+
+            var viajeCiudad = new ViajeCiudad() { ViajeCiudadId = 1, CiudadId = 1, ViajeId = 1, Ciudad = ciudades[0], Tipo = "Destino" };
+            mockViajeCiudadQuery.Setup(x => x.GetViajeCiudad(1)).Returns(viajeCiudad);
+            mockCiudadQuery.Setup(x => x.GetCiudad(viajeCiudad.CiudadId)).Returns((Ciudad)ciudades[0]);
+            mockProvinciaQuery.Setup(x => x.GetProvincia(viajeCiudad.Ciudad.ProvinciaId)).Returns((Provincia)provincias[1]);
+            mockPaisQuery.Setup(x => x.GetPais(viajeCiudad.Ciudad.Provincia.PaisId)).Returns((Pais)paisArgentina);
             //Act
 
-            List<CiudadResponse> result = ciudadService.GetCiudadList("ASC", null, null, "Espa");
+            ViajeCiudadResponse result = viajeCiudadService.GetViajeCiudadById(1);
+
+            result.Should().NotBeNull();
+            result.ViajeId.Should().Be(viajeCiudad.ViajeId);
+            result.Ciudad.Should().NotBeNull();
+            result.Ciudad.Id.Should().Be(ciudades[0].CiudadId);
+            result.Ciudad.Nombre.Should().Be(ciudades[0].Nombre);
+            result.Ciudad.Provincia.Should().NotBeNull();
+            result.Ciudad.Provincia.Id.Should().Be(provincias[1].ProvinciaId);
+            result.Ciudad.Provincia.Nombre.Should().Be(provincias[1].Nombre);
+            result.Ciudad.Provincia.Pais.Should().NotBeNull();
+            result.Ciudad.Provincia.Pais.Id.Should().Be(paisArgentina.PaisId);
+            result.Ciudad.Provincia.Pais.Nombre.Should().Be(paisArgentina.Nombre);
+            result.Ciudad.Provincia.Pais.Codigo.Should().Be(paisArgentina.Codigo);
+            result.Id.Should().Be(viajeCiudad.ViajeCiudadId);
+        }
+
+        [Fact]
+        public void GetViajeCiudadById_ThrowElementoInexistenteException()
+        {
+            //Arrange
+
+            mockViajeCiudadQuery.Setup(q => q.GetViajeCiudad(It.IsAny<int>())).Returns((ViajeCiudad)null);
+
+            // Act Assert
+            Assert.Throws<ElementoInexistenteException>(() => viajeCiudadService.GetViajeCiudadById(It.IsAny<int>()));
 
 
+        }
+
+        [Fact]
+        public void RemoveViajeCiudad_WithValidRequest_ReturnsRemoveViajeCiudadResponse()
+        {
+            //Arrange
+            var paisArgentina = new Pais { PaisId = 1, Nombre = "Argentina", Codigo = "ARG" };
+            var paisEspaña = new Pais { PaisId = 2, Nombre = "España", Codigo = "ESP" };
+
+            var provincias = new List<Provincia>
+            {
+                new Provincia { ProvinciaId = 2, Nombre = "Chubut", PaisId = 1,Pais=paisArgentina },
+                new Provincia { ProvinciaId = 1, Nombre = "Buenos Aires", PaisId = 1 ,Pais=paisArgentina},
+                new Provincia { ProvinciaId = 3, Nombre = "Madrid", PaisId = 2 ,Pais=paisEspaña}
+
+            };
+            var ciudades = new List<Ciudad>
+            {
+
+               new Ciudad { CiudadId = 1, Nombre = "Solano", Provincia = provincias[1], ProvinciaId = 1 },
+               new Ciudad { CiudadId = 2, Nombre = "Quilmes", Provincia = provincias[1], ProvinciaId = 1 },
+               new Ciudad { CiudadId = 3, Nombre = "Florencio Varela", Provincia = provincias[1], ProvinciaId = 1 },
+               new Ciudad { CiudadId = 4, Nombre = "Madrid", Provincia = provincias[2], ProvinciaId = 1 },
+            };
+
+            var viajeCiudad = new ViajeCiudad() { ViajeCiudadId = 1, CiudadId = 1, ViajeId = 1, Ciudad = ciudades[0], Tipo = "Escala" };
+
+
+            mockCiudadQuery.Setup(x => x.GetCiudad(viajeCiudad.Ciudad.CiudadId)).Returns((Ciudad)ciudades[0]);
+            mockProvinciaQuery.Setup(x => x.GetProvincia(viajeCiudad.Ciudad.Provincia.ProvinciaId)).Returns((Provincia)provincias[1]);
+            mockPaisQuery.Setup(x => x.GetPais(viajeCiudad.Ciudad.Provincia.Pais.PaisId)).Returns((Pais)paisArgentina);
+
+
+            mockViajeCiudadCommand.Setup(x => x.RemoveViajeCiudad(1)).Returns((ViajeCiudad)viajeCiudad);
+
+            //Act
+            ViajeCiudadResponse result = viajeCiudadService.RemoveViajeCiudad(1);
+
+            result.ViajeId.Should().Be(viajeCiudad.ViajeId);
+            result.Ciudad.Should().NotBeNull();
+            result.Ciudad.Id.Should().Be(ciudades[0].CiudadId);
+            result.Ciudad.Nombre.Should().Be(ciudades[0].Nombre);
+            result.Ciudad.Provincia.Should().NotBeNull();
+            result.Ciudad.Provincia.Id.Should().Be(provincias[1].ProvinciaId);
+            result.Ciudad.Provincia.Nombre.Should().Be(provincias[1].Nombre);
+            result.Ciudad.Provincia.Pais.Should().NotBeNull();
+            result.Ciudad.Provincia.Pais.Id.Should().Be(paisArgentina.PaisId);
+            result.Ciudad.Provincia.Pais.Nombre.Should().Be(paisArgentina.Nombre);
+            result.Ciudad.Provincia.Pais.Codigo.Should().Be(paisArgentina.Codigo);
+            result.Id.Should().Be(viajeCiudad.ViajeCiudadId);
+
+        }
+
+
+
+        [Fact]
+        public void RemoveViajeCiudad_ThrowElementoInexistenteException()
+        {
+            //Arrange
+            mockViajeCiudadCommand.Setup(q => q.RemoveViajeCiudad(It.IsAny<int>())).Returns((ViajeCiudad)null);
+
+            Assert.Throws<ElementoInexistenteException>(() => viajeCiudadService.RemoveViajeCiudad(1));
+
+        }
+
+
+        //[Fact]
+        [Fact]
+        public void UpdateViajeCiudad_WithValidRequest_ReturnsUpdateViajeCiudadResponse()
+        {
+            //Arrange
+            var paisArgentina = new Pais { PaisId = 1, Nombre = "Argentina", Codigo = "ARG" };
+            var paisEspaña = new Pais { PaisId = 2, Nombre = "España", Codigo = "ESP" };
+
+            var provincias = new List<Provincia>
+            {
+                new Provincia { ProvinciaId = 2, Nombre = "Chubut", PaisId = 1,Pais=paisArgentina },
+                new Provincia { ProvinciaId = 1, Nombre = "Buenos Aires", PaisId = 1 ,Pais=paisArgentina},
+                new Provincia { ProvinciaId = 3, Nombre = "Madrid", PaisId = 2 ,Pais=paisEspaña}
+
+            };
+            var ciudades = new List<Ciudad>
+            {
+
+               new Ciudad { CiudadId = 1, Nombre = "Solano", Provincia = provincias[1], ProvinciaId = 1 },
+               new Ciudad { CiudadId = 2, Nombre = "Quilmes", Provincia = provincias[1], ProvinciaId = 1 },
+               new Ciudad { CiudadId = 3, Nombre = "Florencio Varela", Provincia = provincias[1], ProvinciaId = 1 },
+               new Ciudad { CiudadId = 4, Nombre = "Madrid", Provincia = provincias[2], ProvinciaId = 1 },
+            };
+
+            var request = new ViajeCiudadRequest { ViajeId = 1, CiudadId = 1, Tipo = "Destino" };
+
+            mockCiudadQuery.Setup(x => x.GetCiudad(request.CiudadId)).Returns((Ciudad)ciudades[0]);
+            mockProvinciaQuery.Setup(x => x.GetProvincia(1)).Returns((Provincia)provincias[1]);
+            mockPaisQuery.Setup(x => x.GetPais(1)).Returns((Pais)paisArgentina);
+
+
+            mockViajeCiudadCommand.Setup(x => x.UpdateViajeCiudad(1, request))
+                .Returns(new ViajeCiudad { ViajeCiudadId = 1, CiudadId = request.CiudadId, ViajeId = request.ViajeId, Ciudad = ciudades[0], Tipo = request.Tipo });
+
+            //Act
+            ViajeCiudadResponse result = viajeCiudadService.UpdateViajeCiudad(1, request);
+
+            result.Should().NotBeNull();
+            result.ViajeId.Should().Be(request.ViajeId);
+            result.Ciudad.Should().NotBeNull();
+            result.Ciudad.Id.Should().Be(ciudades[0].CiudadId);
+            result.Ciudad.Nombre.Should().Be(ciudades[0].Nombre);
+            result.Ciudad.Provincia.Should().NotBeNull();
+            result.Ciudad.Provincia.Id.Should().Be(provincias[1].ProvinciaId);
+            result.Ciudad.Provincia.Nombre.Should().Be(provincias[1].Nombre);
+            result.Ciudad.Provincia.Pais.Should().NotBeNull();
+            result.Ciudad.Provincia.Pais.Id.Should().Be(paisArgentina.PaisId);
+            result.Ciudad.Provincia.Pais.Nombre.Should().Be(paisArgentina.Nombre);
+            result.Ciudad.Provincia.Pais.Codigo.Should().Be(paisArgentina.Codigo);
+            result.Id.Should().Be(1);
+
+        }
+
+
+
+        [Fact]
+        public void UpdateViajeCiudad_ThrowElementoInexistenteException()
+        {
+            //Arrange
+            var paisArgentina = new Pais { PaisId = 1, Nombre = "Argentina", Codigo = "ARG" };
+            var paisEspaña = new Pais { PaisId = 2, Nombre = "España", Codigo = "ESP" };
+
+            var provincias = new List<Provincia>
+            {
+                new Provincia { ProvinciaId = 2, Nombre = "Chubut", PaisId = 1,Pais=paisArgentina },
+                new Provincia { ProvinciaId = 1, Nombre = "Buenos Aires", PaisId = 1 ,Pais=paisArgentina},
+                new Provincia { ProvinciaId = 3, Nombre = "Madrid", PaisId = 2 ,Pais=paisEspaña}
+
+            };
+            var ciudades = new List<Ciudad>
+            {
+
+               new Ciudad { CiudadId = 1, Nombre = "Solano", Provincia = provincias[1], ProvinciaId = 1 },
+               new Ciudad { CiudadId = 2, Nombre = "Quilmes", Provincia = provincias[1], ProvinciaId = 1 },
+               new Ciudad { CiudadId = 3, Nombre = "Florencio Varela", Provincia = provincias[1], ProvinciaId = 1 },
+               new Ciudad { CiudadId = 4, Nombre = "Madrid", Provincia = provincias[2], ProvinciaId = 1 },
+            };
+
+            var request = new ViajeCiudadRequest { ViajeId = 1, CiudadId = 1, Tipo = "Destino" };
+
+            mockCiudadQuery.Setup(x => x.GetCiudad(request.CiudadId)).Returns((Ciudad)ciudades[0]);
+            mockViajeCiudadCommand.Setup(x => x.UpdateViajeCiudad(request.CiudadId, request)).Returns((ViajeCiudad)null);
+
+
+
+            //Act Y assert
+            Assert.Throws<ElementoInexistenteException>(() => viajeCiudadService.UpdateViajeCiudad(1, request));
+        }
+
+        [Fact]
+        public void UpdateViajeCiudad_ThrowIdInvalidoException()
+        {
+            //Arrange
+            var request = new ViajeCiudadRequest { ViajeId = 1, CiudadId = 1, Tipo = "Destino" };
+            mockCiudadQuery.Setup(x => x.GetCiudad(It.IsAny<int>())).Returns((Ciudad)null);
+
+
+            //Act Y assert
+            Assert.Throws<IdInvalidoException>(() => viajeCiudadService.UpdateViajeCiudad(1, request));
+        }
+
+
+
+
+        [Fact]
+        public void GetViajeCiudadList_ReturnsViajeCiudadResponses()
+        {
+             // Arrange
+            
+            var paisArgentina = new Pais { PaisId = 1, Nombre = "Argentina", Codigo = "ARG" };
+            var paisEspaña = new Pais { PaisId = 2, Nombre = "España", Codigo = "ESP" };
+
+            var provincias = new List<Provincia>
+            {
+                new Provincia { ProvinciaId = 2, Nombre = "Chubut", PaisId = 1,Pais=paisArgentina },
+                new Provincia { ProvinciaId = 1, Nombre = "Buenos Aires", PaisId = 1 ,Pais=paisArgentina},
+                new Provincia { ProvinciaId = 3, Nombre = "Madrid", PaisId = 2 ,Pais=paisEspaña}
+
+            };
+            var ciudades = new List<Ciudad>
+            {
+                new Ciudad { CiudadId = 1, Nombre = "Solano", Provincia = provincias[0], ProvinciaId = provincias[0].ProvinciaId },
+                new Ciudad { CiudadId = 2, Nombre = "Quilmes", Provincia = provincias[0], ProvinciaId = provincias[0].ProvinciaId },
+                new Ciudad { CiudadId = 3, Nombre = "Florencio Varela", Provincia = provincias[0], ProvinciaId = provincias[0].ProvinciaId },
+                new Ciudad { CiudadId = 4, Nombre = "Madrid", Provincia = provincias[2], ProvinciaId = provincias[2].ProvinciaId },
+            };
+            var viajeCiudades = new List<ViajeCiudad>
+            {
+                new ViajeCiudad {ViajeCiudadId = 1, ViajeId = 1,CiudadId = 1,Ciudad=ciudades[0],Tipo ="Origen"},
+                new ViajeCiudad {ViajeCiudadId = 2, ViajeId = 1,CiudadId = 2,Ciudad=ciudades[1],Tipo ="Destino"},
+                new ViajeCiudad {ViajeCiudadId = 3, ViajeId = 2,CiudadId = 3,Ciudad=ciudades[2],Tipo ="Origen"},
+                new ViajeCiudad {ViajeCiudadId = 1, ViajeId = 2,CiudadId = 4,Ciudad=ciudades[3],Tipo ="Destino"}
+            };
+
+            mockViajeCiudadQuery.Setup(x => x.GetViajeCiudadList(null, null)).Returns((List<ViajeCiudad>)viajeCiudades.OrderBy(v => v.ViajeId).ToList());
+
+
+            mockCiudadQuery.Setup(x => x.GetCiudad(It.IsAny<int>())).Returns((int ciudadId) =>
+            {
+                var ciudad = ciudades.FirstOrDefault(c => c.CiudadId == ciudadId);
+                if (ciudad != null)
+                {
+                    ciudad.Provincia = provincias.FirstOrDefault(p => p.ProvinciaId == ciudad.ProvinciaId);
+                }
+                return ciudad;
+            });
+            mockProvinciaQuery.Setup(x => x.GetProvincia(It.IsAny<int>())).Returns((int provinciaId) => provincias.FirstOrDefault(p => p.ProvinciaId == provinciaId));
+            mockPaisQuery.Setup(x => x.GetPais(It.IsAny<int>())).Returns((int paisId) => paisId == 1 ? paisArgentina : paisEspaña);
+
+
+            // Act
+            var result = viajeCiudadService.GetViajeCiudadList(null, null);
 
             // Assert
             result.Should().NotBeNull();
-            result.Should().HaveCount(1);
-            result[0].Id.Should().Be(4);
-            result[0].Nombre.Should().Be("Madrid");
-            result[0].Provincia.Id.Should().Be(3);
-            result[0].Provincia.Pais.Id.Should().Be(2);
+            result.Should().HaveCount(viajeCiudades.Count);
 
+            for (int i = 0; i < viajeCiudades.Count; i++)
+            {
+                var expectedViajeCiudad = viajeCiudades[i];
+                var actualViajeCiudad = result[i];
 
+                actualViajeCiudad.Id.Should().Be(expectedViajeCiudad.ViajeCiudadId);
+                actualViajeCiudad.ViajeId.Should().Be(expectedViajeCiudad.ViajeId);
+                actualViajeCiudad.Tipo.Should().Be(expectedViajeCiudad.Tipo);
+                actualViajeCiudad.Ciudad.Should().NotBeNull();
+                actualViajeCiudad.Ciudad.Id.Should().Be(expectedViajeCiudad.Ciudad.CiudadId);
+                actualViajeCiudad.Ciudad.Nombre.Should().Be(expectedViajeCiudad.Ciudad.Nombre);
+                actualViajeCiudad.Ciudad.Provincia.Should().NotBeNull();
+                actualViajeCiudad.Ciudad.Provincia.Id.Should().Be(expectedViajeCiudad.Ciudad.Provincia.ProvinciaId);
+                actualViajeCiudad.Ciudad.Provincia.Nombre.Should().Be(expectedViajeCiudad.Ciudad.Provincia.Nombre);
+                actualViajeCiudad.Ciudad.Provincia.Pais.Should().NotBeNull();
+                actualViajeCiudad.Ciudad.Provincia.Pais.Id.Should().Be(expectedViajeCiudad.Ciudad.Provincia.Pais.PaisId);
+                actualViajeCiudad.Ciudad.Provincia.Pais.Nombre.Should().Be(expectedViajeCiudad.Ciudad.Provincia.Pais.Nombre);
+                actualViajeCiudad.Ciudad.Provincia.Pais.Codigo.Should().Be(expectedViajeCiudad.Ciudad.Provincia.Pais.Codigo);
+            }
         }
 
 
         [Fact]
-        public void GetCiudadList_WithInvalidOrden_ThrowDatoInvalidoException()
+        public void GetViajeCiudadList_WithViajeIdFilter_ReturnsViajeCiudadResponses()
         {
-            Assert.Throws<DatoInvalidoException>(() => ciudadService.GetCiudadList("aaaaa"));
+            // Arrange
 
+            var paisArgentina = new Pais { PaisId = 1, Nombre = "Argentina", Codigo = "ARG" };
+            var paisEspaña = new Pais { PaisId = 2, Nombre = "España", Codigo = "ESP" };
+
+            var provincias = new List<Provincia>
+            {
+                new Provincia { ProvinciaId = 2, Nombre = "Chubut", PaisId = 1,Pais=paisArgentina },
+                new Provincia { ProvinciaId = 1, Nombre = "Buenos Aires", PaisId = 1 ,Pais=paisArgentina},
+                new Provincia { ProvinciaId = 3, Nombre = "Madrid", PaisId = 2 ,Pais=paisEspaña}
+
+            };
+            var ciudades = new List<Ciudad>
+            {
+                new Ciudad { CiudadId = 1, Nombre = "Solano", Provincia = provincias[0], ProvinciaId = provincias[0].ProvinciaId },
+                new Ciudad { CiudadId = 2, Nombre = "Quilmes", Provincia = provincias[0], ProvinciaId = provincias[0].ProvinciaId },
+                new Ciudad { CiudadId = 3, Nombre = "Florencio Varela", Provincia = provincias[0], ProvinciaId = provincias[0].ProvinciaId },
+                new Ciudad { CiudadId = 4, Nombre = "Madrid", Provincia = provincias[2], ProvinciaId = provincias[2].ProvinciaId },
+            };
+            var viajeCiudades = new List<ViajeCiudad>
+            {
+                new ViajeCiudad {ViajeCiudadId = 1, ViajeId = 1,CiudadId = 1,Ciudad=ciudades[0],Tipo ="Origen"},
+                new ViajeCiudad {ViajeCiudadId = 2, ViajeId = 1,CiudadId = 2,Ciudad=ciudades[1],Tipo ="Destino"},
+                new ViajeCiudad {ViajeCiudadId = 3, ViajeId = 2,CiudadId = 3,Ciudad=ciudades[2],Tipo ="Origen"},
+                new ViajeCiudad {ViajeCiudadId = 4, ViajeId = 2,CiudadId = 4,Ciudad=ciudades[3],Tipo ="Destino"}
+            };
+
+            mockViajeCiudadQuery.Setup(x => x.GetViajeCiudadList(1, null)).Returns((List<ViajeCiudad>)viajeCiudades
+                .Where(p => p.ViajeId == 1)
+                .OrderBy(v => v.ViajeId).ToList());
+
+
+            mockCiudadQuery.Setup(x => x.GetCiudad(It.IsAny<int>())).Returns((int ciudadId) =>
+            {
+                var ciudad = ciudades.FirstOrDefault(c => c.CiudadId == ciudadId);
+                if (ciudad != null)
+                {
+                    ciudad.Provincia = provincias.FirstOrDefault(p => p.ProvinciaId == ciudad.ProvinciaId);
+                }
+                return ciudad;
+            });
+            mockProvinciaQuery.Setup(x => x.GetProvincia(It.IsAny<int>())).Returns((int provinciaId) => provincias.FirstOrDefault(p => p.ProvinciaId == provinciaId));
+            mockPaisQuery.Setup(x => x.GetPais(It.IsAny<int>())).Returns((int paisId) => paisId == 1 ? paisArgentina : paisEspaña);
+
+
+            // Act
+            var result = viajeCiudadService.GetViajeCiudadList(1, null);
+
+            // Assert
+            result.Should().NotBeNull();
+            result.Should().HaveCount(2);
+
+            for (int i = 0; i < result.Count; i++)
+            {
+                var expectedViajeCiudad = viajeCiudades[i];
+                var actualViajeCiudad = result[i];
+
+                actualViajeCiudad.Id.Should().Be(expectedViajeCiudad.ViajeCiudadId);
+                actualViajeCiudad.ViajeId.Should().Be(expectedViajeCiudad.ViajeId);
+                actualViajeCiudad.Tipo.Should().Be(expectedViajeCiudad.Tipo);
+                actualViajeCiudad.Ciudad.Should().NotBeNull();
+                actualViajeCiudad.Ciudad.Id.Should().Be(expectedViajeCiudad.Ciudad.CiudadId);
+                actualViajeCiudad.Ciudad.Nombre.Should().Be(expectedViajeCiudad.Ciudad.Nombre);
+                actualViajeCiudad.Ciudad.Provincia.Should().NotBeNull();
+                actualViajeCiudad.Ciudad.Provincia.Id.Should().Be(expectedViajeCiudad.Ciudad.Provincia.ProvinciaId);
+                actualViajeCiudad.Ciudad.Provincia.Nombre.Should().Be(expectedViajeCiudad.Ciudad.Provincia.Nombre);
+                actualViajeCiudad.Ciudad.Provincia.Pais.Should().NotBeNull();
+                actualViajeCiudad.Ciudad.Provincia.Pais.Id.Should().Be(expectedViajeCiudad.Ciudad.Provincia.Pais.PaisId);
+                actualViajeCiudad.Ciudad.Provincia.Pais.Nombre.Should().Be(expectedViajeCiudad.Ciudad.Provincia.Pais.Nombre);
+                actualViajeCiudad.Ciudad.Provincia.Pais.Codigo.Should().Be(expectedViajeCiudad.Ciudad.Provincia.Pais.Codigo);
+            }
         }
-
-
         [Fact]
-        public void GetCiudadList_WithInvalidPais_ThrowIdElementoInexistenteException()
+        public void GetViajeCiudadList_WithLocalizacionFilter_ReturnsViajeCiudadResponses()
         {
-            mockPaisQuery.Setup(q => q.GetPais(It.IsAny<string>())).Returns((Pais)null);
+            // Arrange
 
-            Assert.Throws<ElementoInexistenteException>(() => ciudadService.GetCiudadList("ASC", null,null, "PaisNoValido"));
-        }
-        [Fact]
-        public void GetCiudadList_WithInvalidProvincia_ThrowIdInvalidoException()
-        {
-            mockPaisQuery.Setup(q => q.GetPais(It.IsAny<string>())).Returns((Pais)null);
+            var paisArgentina = new Pais { PaisId = 1, Nombre = "Argentina", Codigo = "ARG" };
+            var paisEspaña = new Pais { PaisId = 2, Nombre = "España", Codigo = "ESP" };
 
-            Assert.Throws<IdInvalidoException>(() => ciudadService.GetCiudadList("ASC", null, "provinciaNoValida", null));
+            var provincias = new List<Provincia>
+            {
+                new Provincia { ProvinciaId = 2, Nombre = "Chubut", PaisId = 1,Pais=paisArgentina },
+                new Provincia { ProvinciaId = 1, Nombre = "Buenos Aires", PaisId = 1 ,Pais=paisArgentina},
+                new Provincia { ProvinciaId = 3, Nombre = "Madrid", PaisId = 2 ,Pais=paisEspaña}
+
+            };
+            var ciudades = new List<Ciudad>
+            {
+                new Ciudad { CiudadId = 1, Nombre = "Solano", Provincia = provincias[0], ProvinciaId = provincias[0].ProvinciaId },
+                new Ciudad { CiudadId = 2, Nombre = "Quilmes", Provincia = provincias[0], ProvinciaId = provincias[0].ProvinciaId },
+                new Ciudad { CiudadId = 3, Nombre = "Florencio Varela", Provincia = provincias[0], ProvinciaId = provincias[0].ProvinciaId },
+                new Ciudad { CiudadId = 4, Nombre = "Madrid", Provincia = provincias[2], ProvinciaId = provincias[2].ProvinciaId },
+            };
+            var viajeCiudades = new List<ViajeCiudad>
+            {
+                new ViajeCiudad {ViajeCiudadId = 1, ViajeId = 1,CiudadId = 1,Ciudad=ciudades[0],Tipo ="Origen"},
+                new ViajeCiudad {ViajeCiudadId = 2, ViajeId = 1,CiudadId = 2,Ciudad=ciudades[1],Tipo ="Destino"},
+                new ViajeCiudad {ViajeCiudadId = 3, ViajeId = 2,CiudadId = 3,Ciudad=ciudades[2],Tipo ="Origen"},
+                new ViajeCiudad {ViajeCiudadId = 4, ViajeId = 2,CiudadId = 4,Ciudad=ciudades[3],Tipo ="Destino"}
+            };
+
+            string localizacionFiltro = "Argentina";
+
+            mockViajeCiudadQuery.Setup(x => x.GetViajeCiudadList(It.IsAny<int?>(), It.IsAny<string>()))
+      .Returns((int? viajeId, string localizacion) =>
+      {
+          var filteredViajeCiudades = viajeCiudades;
+
+          if (!string.IsNullOrEmpty(localizacion))
+          {
+              filteredViajeCiudades = filteredViajeCiudades.Where(vc =>
+                  vc.Ciudad.Nombre.ToLower().Contains(localizacion.ToLower()) ||
+                  vc.Ciudad.Provincia.Nombre.ToLower().Contains(localizacion.ToLower()) ||
+                  vc.Ciudad.Provincia.Pais.Nombre.ToLower().Contains(localizacion.ToLower())
+              ).ToList();
+          }
+
+          return filteredViajeCiudades.OrderBy(v => v.ViajeId).ToList();
+      });
+
+            mockCiudadQuery.Setup(x => x.GetCiudad(It.IsAny<int>())).Returns((int ciudadId) =>
+            {
+                var ciudad = ciudades.FirstOrDefault(c => c.CiudadId == ciudadId);
+                if (ciudad != null)
+                {
+                    ciudad.Provincia = provincias.FirstOrDefault(p => p.ProvinciaId == ciudad.ProvinciaId);
+                }
+                return ciudad;
+            });
+            mockProvinciaQuery.Setup(x => x.GetProvincia(It.IsAny<int>())).Returns((int provinciaId) => provincias.FirstOrDefault(p => p.ProvinciaId == provinciaId));
+            mockPaisQuery.Setup(x => x.GetPais(It.IsAny<int>())).Returns((int paisId) => paisId == 1 ? paisArgentina : paisEspaña);
+
+
+            // Act
+            var result = viajeCiudadService.GetViajeCiudadList(null, "Argentina");
+
+            // Assert
+            result.Should().NotBeNull();
+            result.Should().HaveCount(3);
+
+            for (int i = 0; i < result.Count; i++)
+            {
+                var expectedViajeCiudad = viajeCiudades[i];
+                var actualViajeCiudad = result[i];
+
+                actualViajeCiudad.Id.Should().Be(expectedViajeCiudad.ViajeCiudadId);
+                actualViajeCiudad.ViajeId.Should().Be(expectedViajeCiudad.ViajeId);
+                actualViajeCiudad.Tipo.Should().Be(expectedViajeCiudad.Tipo);
+                actualViajeCiudad.Ciudad.Should().NotBeNull();
+                actualViajeCiudad.Ciudad.Id.Should().Be(expectedViajeCiudad.Ciudad.CiudadId);
+                actualViajeCiudad.Ciudad.Nombre.Should().Be(expectedViajeCiudad.Ciudad.Nombre);
+                actualViajeCiudad.Ciudad.Provincia.Should().NotBeNull();
+                actualViajeCiudad.Ciudad.Provincia.Id.Should().Be(expectedViajeCiudad.Ciudad.Provincia.ProvinciaId);
+                actualViajeCiudad.Ciudad.Provincia.Nombre.Should().Be(expectedViajeCiudad.Ciudad.Provincia.Nombre);
+                actualViajeCiudad.Ciudad.Provincia.Pais.Should().NotBeNull();
+                actualViajeCiudad.Ciudad.Provincia.Pais.Id.Should().Be(expectedViajeCiudad.Ciudad.Provincia.Pais.PaisId);
+                actualViajeCiudad.Ciudad.Provincia.Pais.Nombre.Should().Be(expectedViajeCiudad.Ciudad.Provincia.Pais.Nombre);
+                actualViajeCiudad.Ciudad.Provincia.Pais.Codigo.Should().Be(expectedViajeCiudad.Ciudad.Provincia.Pais.Codigo);
+            }
         }
+
     }
 }
