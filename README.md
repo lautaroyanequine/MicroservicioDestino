@@ -23,11 +23,9 @@ El backend se comunica con el frontend mediante APIs cuidadosamente definidas y 
 
 El microservicio se sometió a un riguroso proceso de pruebas unitarias para garantizar su calidad y funcionalidad. Esto asegura que el sistema funcione correctamente en diversas situaciones y mejora la confiabilidad del producto final.
 
-## Repositorio y Uso
-
-Este repositorio contiene todo el código fuente y los archivos necesarios para el microservicio de destinos de la agencia de viajes. Puedes clonar el repositorio y explorar tanto el backend como las APIs. Para obtener la experiencia completa, se recomienda clonar y ejecutar localmente debido a las limitaciones de recursos en los hosting gratuitos utilizados para el proyecto.
-
 
 ## Resultado y Contribuciones
 
 Este microservicio fue parte de un proyecto grupal desarrollado como parte de una asignatura universitaria, lo que agregó un valor educativo significativo. Si estás interesado en contribuir, las solicitudes de extracción son bienvenidas.
+
+El repositorio del proyecto completo: https://github.com/orgs/LCC-arg/repositories
